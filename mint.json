@@ -27,11 +27,6 @@
   },
   "anchors": [
     {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://docs.textyess.com"
-    },
-    {
       "name": "Blog",
       "icon": "newspaper",
       "url": "https://www.textyess.com/blog"
