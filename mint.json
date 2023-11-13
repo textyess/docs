@@ -22,7 +22,7 @@
     }
   ],
   "topbarCtaButton": {
-    "name": "Tool",
+    "name": "Sign in",
     "url": "https://ai.textyess.com"
   },
   "anchors": [
@@ -37,8 +37,8 @@
       "group": "Get Started",
       "pages": [
         "introduction",
-        "quickstart",
-        "development"
+        "whatsapp-integration",
+        "widget-install"
       ]
     }
   ],
