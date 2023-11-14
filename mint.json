@@ -5,7 +5,7 @@
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "https://app.textyess.com/favicon.ico",
   "colors": {
     "primary": "#503ADC",
     "light": "#A69BED",
