@@ -1,98 +1,64 @@
 ---
 title: "Widget installation"
-description: "Integrating WhatsApp is a very delicate process. This is because Meta, the company behind WhatsApp, is particularly keen on having virtuous companies use its services. Therefore, we ask you to read this guide carefully so that you can avoid any hiccups."
+description: "Once you have integrated WhatsApp with TextYess you will need to allow your customers to interact with your AI Shopping-Assistant. For this we provide a widget to install on your store."
 ---
 
-<Info>
-  **Prerequisite** You should have installed Node.js (version 18.10.0 or
-  higher).
-</Info>
+<Steps>
+  <Step title="Customize your widget appearance">
+    Click on the "Integrations" section of the menu. From there select the Chat Bubble integration block and personalize your widget.
+  </Step>
+  <Step title="Get the code snippet">
+    From there you will find the code snippet to insert into your Shopify theme. <br /> 
+    The code will look something like this:
 
-Step 1. Install Mintlify on your OS:
-
-<CodeGroup>
-
-```bash npm
-npm i -g mintlify
+```html
+<script
+  type="module"
+  src="https://cdn.textyess.com/v1/textyess-widget-components/textyess-widget-components.esm.js"
+  defer
+/>
+<textyess-bubble-widget user_id="your_user_id" />
 ```
 
-```bash yarn
-yarn global add mintlify
-```
+  </Step>
+  <Step title="Go to the Online store section">
+    Once inside your store click on "Sales channels" from the menu on the right. <br/>
 
-</CodeGroup>
+    A pop-up will appear at the top. From there click on "Online store"
 
-Step 2. Go to the docs are located (where you can find `mint.json`) and run the following command:
+     <Frame type="glass">
+        <img src="/images/first_step.png" />
+    </Frame>
 
-```bash
-mintlify dev
-```
+    <Frame>
 
-The documentation website is now available at `http://localhost:3000`.
-
-### Custom Ports
-
-Mintlify uses port 3000 by default. You can use the `--port` flag to customize the port Mintlify runs on. For example, use this command to run in port 3333:
-
-```bash
-mintlify dev --port 3333
-```
-
-You will see an error like this if you try to run Mintlify in a port that's already taken:
-
-```md
-Error: listen EADDRINUSE: address already in use :::3000
-```
-
-## Mintlify Versions
-
-Each CLI is linked to a specific version of Mintlify. Please update the CLI if your local website looks different than production.
-
-<CodeGroup>
-
-```bash npm
-npm i -g mintlify@latest
-```
-
-```bash yarn
-yarn global upgrade mintlify
-```
-
-</CodeGroup>
-
-## Deployment
-
-<Tip>
-  Unlimited editors available under the [Startup
-  Plan](https://mintlify.com/pricing)
-</Tip>
-
-You should see the following if the deploy successfully went through:
-
-<Frame>
   <img src="/images/checks-passed.png" style={{ borderRadius: "0.5rem" }} />
 </Frame>
 
-## Troubleshooting
+  </Step>
+  <Step title="WhatsApp business account creation">
+    Once you verify your email and confirm that you have all the requirements
+    (see the What do you need section) a new pop-up will be created. This pop-up
+    is owned by Meta. <br /> <br />
+    At this stage what you will need to do is select the Meta Business Account you
+    would like to use. <br /> <br />
+    From there you will need to select or create a WhatsApp Business Account and
+    a related WhatsApp Business Profile. <br /> <br />
+        <Tip> We strongly suggest creating both from scratch and not using existing resources to
+    avoid any conflicts.</Tip>
+     The last step will be to enter the phone number
+    you want to use and verify it by call or SMS.
 
-Here's how to solve some common problems when working with the CLI.
+  </Step>
+  <Step title="Authorize TextYess">
+    Finished with Meta you will return to the 360dialog pop-up. There you must
+    select the phone number you just connected and approve the connection to
+    TextYess. <br /> <br /> This process may take a few minutes so we recommend
+    that you leave the window open until you are redirected to TextYess. <br />
+     <br />
 
-<AccordionGroup>
-  <Accordion title="Mintlify is not loading">
-    Update to Node v18. Run `mintlify install` and try again.
-  </Accordion>
-  <Accordion title="No such file or directory on Windows">
-Go to the `C:/Users/Username/.mintlify/` directory and remove the `mint`
-folder. Then Open the Git Bash in this location and run `git clone
-https://github.com/mintlify/mint.git`.
+    <Check>Done!</Check>
 
-Repeat step 3.
-
-  </Accordion>
-  <Accordion title="Getting an unknown error">
-    Try navigating to the root of your device and delete the ~/.mintlify folder.
-    Then run `mintlify dev` again.
-  </Accordion>
-</AccordionGroup>
-
-Curious about what changed in a CLI version? [Check out the CLI changelog.](/changelog/command-line)
+  </Step>
+</Steps>
+```

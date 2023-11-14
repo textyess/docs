@@ -5,82 +5,80 @@ description: "Integrating WhatsApp is a very delicate process. This is because M
 
 ### Our partner
 
-In order to make this phase as easy as possible, we relied on a partner, 360 Dialog. But don't worry, you won't have to do anything on their platform.
+In order to make this phase as easy as possible, we relied on a partner, 360dialog. But don't worry, you won't have to do anything on their platform.
 
 ## What do you need
 
-<AccordionGroup>
-  <Accordion icon="github" title="Clone your docs locally">
-    During the onboarding process, we created a repository on your Github with
-    your docs content. You can find this repository on our
-    [dashboard](https://dashboard.mintlify.com). To clone the repository
-    locally, follow these
-    [instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
-    in your terminal.
-  </Accordion>
-  <Accordion icon="rectangle-terminal" title="Preview changes">
-    Previewing helps you make sure your changes look as intended. We built a
-    command line interface to render these changes locally. 1. Install the
-    [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the
-    documentation changes locally with this command: ``` npm i -g mintlify ```
-    2. Run the following command at the root of your documentation (where
-    `mint.json` is): ``` mintlify dev ```
-  </Accordion>
-</AccordionGroup>
+### Valid email address
 
-### Deploy your changes
+The first step of the WhatsApp integration is to create a 360dialog account.
+This should be created under a valid email address (free email domains are not allowed).
+This email address should also not be registered under any other 360dialog accounts.
 
-<AccordionGroup>
+### Meta Business Manager Account with complete Business Info
 
-<Accordion icon="message-bot" title="Install our Github app">
-  Our Github app automatically deploys your changes to your docs site, so you
-  don't need to manage deployments yourself. You can find the link to install on
-  your [dashboard](https://dashboard.mintlify.com). Once the bot has been
-  successfully installed, there should be a check mark next to the commit hash
-  of the repo.
-</Accordion>
-<Accordion icon="rocket" title="Push your changes">
-  [Commit and push your changes to
-  Git](https://docs.github.com/en/get-started/using-git/pushing-commits-to-a-remote-repository#about-git-push)
-  for your changes to update in your docs site. If you push and don't see that
-  the Github app successfully deployed your changes, you can also manually
-  update your docs through our [dashboard](https://dashboard.mintlify.com).
-</Accordion>
+Having a Meta Business Manager Account and having access to that account is critical to succeeding in the next steps.
+Also, having an already verified account allows for a whole range of advantages in the integration process.
 
-</AccordionGroup>
+### Phone number
 
-## Update your docs
+The number must be able to receive an International Phone Call or SMS during the registration process and be owned by the client.
 
-Add content directly in your files with MDX syntax and React components. You can use any of our components, or even build your own.
+<Warning>
+  **Important:** the number to be used must not be currently in use for WhatsApp
+  on a phone or through other tools.
+</Warning>
 
-<CardGroup>
+### WhatsApp Business Compliance
 
-<Card title="Style Your Docs" icon="paintbrush" href="/settings/global">
-  Add flair to your docs with personalized branding.
-</Card>
+Your business must not violate or have violated [WhatsApp's Business Policy](https://www.whatsapp.com/legal/business-policy/) and [Commercial Policy](https://www.whatsapp.com/policies/commerce-policy/).
 
-<Card
-  title="Add API Endpoints"
-  icon="square-code"
-  href="/api-playground/configuration"
->
-  Implement your OpenAPI spec and enable API user interaction.
-</Card>
+## Step by step WhatsApp integration
 
-<Card
-  title="Integrate Analytics"
-  icon="chart-mixed"
-  href="/analytics/supported-integrations"
->
-  Draw insights from user interactions with your documentation.
-</Card>
+<Steps>
+  <Step title="Start the integration">
+    Click on the "Integrations" section of the menu. From there click on the
+    "Connect WhatsApp" button.
+  </Step>
+  <Step title="Start the free trial">
+    If you have not already done so, you will be asked to select a plan to start
+    the free trial.y about it anymore and let the shopping assistant do all the
+    dirty work.
+  </Step>
+  <Step title="360dialog account creation">
+    Once you run the free trial you can start the actual integration by clicking
+    on the Connect WhatsApp button again. This will bring up a popup asking you
+    to create a 360dialog account. You will be able to create an account through
+    email or through Facebook. 
+    
+     <Tip>  We recommend using email creation and especially
+    recommend using an email with which you are sure you do not already have a
+    360dialog account.</Tip>
+    
+   
+  </Step>
+  <Step title="WhatsApp business account creation">
+    Once you verify your email and confirm that you have all the requirements
+    (see the What do you need section) a new pop-up will be created. This pop-up
+    is owned by Meta. <br /> <br />
+    At this stage what you will need to do is select the Meta Business Account you
+    would like to use. <br /> <br />
+    From there you will need to select or create a WhatsApp Business Account and
+    a related WhatsApp Business Profile. <br /> <br />
+        <Tip> We strongly suggest creating both from scratch and not using existing resources to
+    avoid any conflicts.</Tip>
+     The last step will be to enter the phone number
+    you want to use and verify it by call or SMS.
 
-<Card
-  title="Host on a Custom Domain"
-  icon="browser"
-  href="/settings/custom-domain/subdomain"
->
-  Keep your docs on your own website's subdomain.
-</Card>
+  </Step>
+  <Step title="Authorize TextYess">
+    Finished with Meta you will return to the 360dialog pop-up. There you must
+    select the phone number you just connected and approve the connection to
+    TextYess. <br /> <br /> This process may take a few minutes so we recommend
+    that you leave the window open until you are redirected to TextYess. <br />
+     <br />
 
-</CardGroup>
+    <Check>Done!</Check>
+
+  </Step>
+</Steps>
