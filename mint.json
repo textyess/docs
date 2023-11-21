@@ -5,7 +5,7 @@
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
   },
-  "favicon": "https://app.textyess.com/favicon.ico",
+  "favicon": "/favicon.svg",
   "colors": {
     "primary": "#503ADC",
     "light": "#A69BED",
@@ -38,7 +38,17 @@
       "pages": [
         "introduction",
         "whatsapp-integration",
-        "widget-install"
+        "widget-install",
+        "analytics"
+      ]
+    },
+    {
+      "group": "Guides",
+      "pages": [
+        "personalize-whatsapp",
+        "improve-ai",
+        "off-boarding",
+        "manage-conversations"
       ]
     }
   ],
