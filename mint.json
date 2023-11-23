@@ -45,10 +45,11 @@
     {
       "group": "Guides",
       "pages": [
-        "personalize-whatsapp",
         "improve-ai",
-        "off-boarding",
-        "manage-conversations"
+        "personalize-whatsapp",
+        "manage-conversations",
+        "product-widget-install",
+        "off-boarding"
       ]
     }
   ],

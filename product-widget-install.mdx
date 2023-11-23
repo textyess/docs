@@ -1,0 +1,69 @@
+---
+title: "Product widget installation"
+description: "Being present at all touchpoints of your customers' user journey is critical to harnessing the potential of your AI Shopping-Assistant. That's why we give the option of including a call-to-action among those on the product page."
+---
+
+<Steps>
+  <Step title="Customize your widget appearance">
+    Click on the "Integrations" section of the menu. From there select the "CTAs in product pages" block and personalize your widget.
+  </Step>
+  <Step title="Get the code snippet">
+    From there you will find the code snippet to insert into your Shopify theme. <br /> 
+    The code will look something like this:
+
+```html
+<script
+  type="module"
+  src="https://cdn.textyess.com/v1/textyess-widget-components/textyess-widget-components.esm.js"
+  defer
+></script>
+<textyess-product-widget user_id="your_user_id" />
+```
+
+  </Step>
+  <Step title="Go to the Online store section">
+    Once inside your store click on "Sales channels" from the menu on the right. <br/>
+
+    A pop-up will appear at the top. From there click on "Online store"
+
+     <Frame>
+        <img src="/images/first_step.png" />
+    </Frame>
+
+  </Step>
+  <Step title="Open the Theme editor">
+   Opening the theme editor is very simple. Just click on the three dots of the theme you want to update. Then click on "Edit code". <br/>
+  
+    <Tip> Before proceeding we strongly recommend that you make backups of your current theme. To do this, click on the three dots, then click on "Duplicate" and/or "Download theme file."</Tip>
+
+     <Frame>
+        <img src="/images/second_step.png" />
+    </Frame>
+
+  </Step>
+  <Step title="Edit the file with call to actions on the product page">
+  This may be the most complex part. In fact, each theme handles the product page and related CTAs differently. Here are some of the possible files where you will find the CTAs where to insert your widget:
+
+- **_main-product.liquid_**
+- **_buy-buttons.liquid_**
+
+<Tip>
+  If you have difficulty finding the CTAs in the files, press **cmd + F** on Mac
+  or **ctrl + F** on Windows. Then type `cart` or `buy` to find the CTAs within
+  the search.
+</Tip>
+
+Once you find the code related to the CTAs, paste the code snippet you generated from TextYess (see step "Get the code snippet"). Remember that if necessary you can create new lines by pressing the enter key in order to put space between the TextYess's code snippet and the CTAs. <br />
+
+We are almost finished! <br />
+
+Now click the "Save" button in the upper right corner, then click the "Preview store" button to make sure the widget is displayed correctly. <br />
+
+<Check>Congratulations, we are live! 🥳</Check>
+
+     <Frame>
+        <img src="/images/last_step.png" />
+    </Frame>
+
+  </Step>
+</Steps>
