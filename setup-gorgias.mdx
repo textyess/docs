@@ -1,0 +1,31 @@
+---
+title: Setup Gorgias
+description: "Learn how to setup Textyess into your Gorgias account!"
+---
+
+## Navigate to the install page
+
+The first step is to [install our Gorgias App](https://ai.textyess.com/integrations/gorgias).
+
+## This will allow us to:
+
+<Steps>
+  <Step title="Create a TextYess view">
+    The app will automatically create a view named "TextYess" where all new conversations with the AI agent will be visible
+  </Step>
+  <Step title="Create a new HTTP integration">
+     The app will automatically create a new HTTP integration where all new ticket messages created from your Gorgias account will be sent to TextYess.
+     Remember that sending messages from Gorgias's ticket page will stop the AI to reply to the customer!
+  </Step>
+</Steps>
+
+
+## On every new WhatsApp conversation:
+  
+  The customer will be created with a @textyess.com email and attached his phone number.
+  The app then will create a ticket with status: **"closed"**, this status means that the AI will continue to generate responses
+  until the customer asks to chat with a custom support member, once this happens, the ticket status will be: **"open"**.
+
+  If a customer support member wants to join the conversation and sends a message to the customer, the AI will stop generating responses
+  and the conversation will exclusively be handled by the support member.
+    
