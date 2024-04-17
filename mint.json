@@ -38,7 +38,8 @@
       "pages": [
         "introduction",
         "whatsapp-integration",
-        "widget-installation",
+        "widget-installation-shopify",
+        "widget-installation-woocommerce",
         "analytics"
       ]
     },

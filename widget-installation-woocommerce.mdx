@@ -1,0 +1,71 @@
+---
+title: "[WOOCOMMERCE] Widget installation"
+description: "Once you have integrated WhatsApp with TextYess you will need to allow your customers to interact with your AI Shopping-Assistant. For this we provide a widget to install on your store."
+---
+
+<Steps>
+  <Step title="Customize your widget appearance">
+    Click on the "Integrations" section of the menu. From there select the Chat Bubble integration block and personalize your widget.
+  </Step>
+  <Step title="Get the code snippet">
+    From there you will find the code snippet to insert into your Woocommerce theme. <br /> 
+    The code will look something like this:
+
+```html
+<script
+  type="module"
+  src="https://cdn.textyess.com/v2/textyess-widget-components/textyess-widget-components.esm.js"
+  defer
+></script>
+<textyess-bubble-widget user_id="your_user_id" />
+```
+
+  </Step>
+  <Step title="Go to Appearance > Editor">
+    Once inside your store click on "Appearance" from the menu on the right. <br/>
+
+    From there click on "Editor"
+
+     <Frame>
+        <img src="/images/appearance_menu.png" />
+    </Frame>
+
+  </Step>
+
+  <Step title="Open the Patterns section">
+    Once opened the editor, you should see something like this. You will need to click the "Patterns"  <br/>
+
+     <Frame>
+        <img src="/images/theme-editor-woocommerce.png" />
+    </Frame>
+
+  </Step>
+
+  <Step title="Open the Header pattern">
+   Several patterns will be shown. You need to scroll down and select the one named "Header"<br />
+   Once again, more than one header pattern may shown. Click the one in which you want to show the widget.
+
+    <Tip>
+      Before proceeding we strongly recommend that you duplicate the pattern that
+      you want to edit. To do this, click on the three dots, then click on
+      "Duplicate".
+    </Tip>
+
+     <Frame>
+        <img src="/images/header-section-woocommerce.png" />
+    </Frame>
+
+  </Step>
+
+    <Step title="Edit and save the code">
+    Got a the bottom of the file and paste the code from step 2 right before the last `<!-- /wp:group -->` <br/>
+    Once you have edited the code, click save in the upper right corner.
+
+     <Frame>
+        <img src="/images/add-bubble-widget-woocommerce.png" />
+    </Frame>
+
+        <Check>Congratulations, we are live! 🥳</Check>
+
+  </Step>
+</Steps>
