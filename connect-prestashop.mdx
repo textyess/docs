@@ -1,0 +1,76 @@
+---
+title: "[PRESTASHOP] Integration"
+description: "In order to connect TextYess with your PrestaShop store you will need to generate an api key"
+---
+
+<Steps>
+  <Step title="Go to your admin panel">
+    The admin panel is the page from which you manage your orders, update products and so on.
+  </Step>
+  <Step title="Go to the Webservice section">
+    From the menu you will need to click the `Advanced Parameters` submenu. From there click `Webservice`. 
+  </Step>
+  <Step title="Enable the Webservice">
+   By default, the webservice feature is disabled on PrestaShop and needs to be switched on before the first use.
+   In order to do so, choose “Yes” for the “Enable PrestaShop Webservice” option.
+
+{" "}
+
+<Note>
+  If you read that the Webservice is already enabled for your store you can skip
+  this step
+</Note>
+
+   <img src="https://devdocs.prestashop-project.org/8/webservice/img/enable_webservice.png" />
+  </Step>
+  <Step title="Create an API Key">
+    In order to allow TextYess to have access to your store you need to create an access key. 
+    Click the “Add new webservice key” button to access the account configuration section.
+
+    From there click generate.
+
+    In the permissions section give `All` to all of the following permissions:
+
+    - `categories`
+    - `combinations`
+    - `configurations`
+    - `contacts`
+    - `countries`
+    - `currencies`
+    - `customers`
+    - `customizations`
+    - `groups`
+    - `image_types`
+    - `images`
+    - `languages`
+    - `manufacturers`
+    - `order_carriers`
+    - `order_details`
+    - `order_histories`
+    - `order_invoices`
+    - `order_payments`
+    - `order_slip`
+    - `order_states`
+    - `orders`
+    - `price_ranges`
+    - `product_customization_fields`
+    - `product_feature_values`
+    - `product_features`
+    - `product_option_values`
+    - `product_options`
+    - `product_suppliers`
+    - `products`
+    - `stock_availables`
+    - `stocks`
+    - `tags`
+
+    <Warning>Lack of one of these permissions could affect the operation of TextYess</Warning>
+
+    <img src="https://devdocs.prestashop-project.org/8/webservice/img/create_access_key.png"/>
+
+   </Step>
+  <Step title="Add the key in TextYess">
+    Copy the generated API key and past it back into TextYess.
+    Insert the shop url and you are good to go 🥳
+  </Step>
+</Steps>
