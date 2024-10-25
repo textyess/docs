@@ -9,9 +9,13 @@ authMethod: "none"
 
 The webhook for new orders allows TextYess to receive data and manage data from newly created orders. Receiving this data allows TextYess to unlock enchaced analytics and provide one of the most powerfull automation.
 
+### Path Parameters
+
 <ParamField path="userId" type="string" required initialValue="1234456">
   The id of the user. You can get your user id from https://ai.textyess.com/developers
 </ParamField>
+
+### Body Parameters
 
 <ParamField body="id" type="string" required initialValue="ord_12345678">
   The id of the order
@@ -236,4 +240,10 @@ The webhook for new orders allows TextYess to receive data and manage data from 
 <ParamField body="order_status_url" type="string" initialValue="https://example.com/orders/status/ord_12345678">
   URL to check the order status
 </ParamField>
+
+### Response
+
+<ResponseField name="success" type="boolean">
+  If the webhook was sucessfully process
+</ResponseField>
 
