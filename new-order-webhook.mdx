@@ -162,7 +162,7 @@ The webhook for new orders enables TextYess to receive and manage data from newl
   The total price of the order
 </ParamField>
 
-<ParamField body="payment_gateway_names" type="string[]" required initialValue={["stripe", "paypal"]} placeholder="['stripe', 'paypal']">
+<ParamField body="payment_gateway_names" type="array" required initialValue={["stripe", "paypal"]} placeholder="['stripe', 'paypal']">
   An array of payment gateway names used for the order
 </ParamField>
 
