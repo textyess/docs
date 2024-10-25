@@ -73,7 +73,8 @@
   "api": {
     "baseUrl": "https://api-ai.textyess.com",
     "auth": {
-      "method": "bearer"
+      "method": "key",
+      "name": "x-auth-token"
     }
 }
 }
