@@ -1,0 +1,184 @@
+---
+title: "Webhook for new orders"
+api: 'POST /user'
+description: "Learn how to to send new orders' data through webhooks"
+---
+
+## Overview
+
+The webhook for new orders allows TextYess to receive data and manage data from newly created orders. Receiving this data allows TextYess to unlock enchaced analytics and provide one of the most powerfull automation.
+
+<ParamField body="id" type="string" required>
+  The id of the order
+</ParamField>
+
+<ParamField body="shipping_address" type="object">
+  Shipping address information
+  <Expandable title="Show object properties">
+    <ParamField body="first_name" type="string" required>
+      First name for shipping
+    </ParamField>
+    <ParamField body="last_name" type="string" required>
+      Last name for shipping
+    </ParamField>
+    <ParamField body="address1" type="string" required>
+      Primary address line
+    </ParamField>
+    <ParamField body="address2" type="string">
+      Secondary address line
+    </ParamField>
+    <ParamField body="phone" type="string" required>
+      Phone number for shipping
+    </ParamField>
+    <ParamField body="city" type="string" required>
+      City for shipping
+    </ParamField>
+    <ParamField body="zip" type="string" required>
+      ZIP or postal code
+    </ParamField>
+    <ParamField body="company" type="string">
+      Company name, if applicable
+    </ParamField>
+    <ParamField body="country_code" type="string" required>
+      Country code
+    </ParamField>
+    <ParamField body="province" type="string">
+      Province or state
+    </ParamField>
+    <ParamField body="country" type="string" required>
+      Country name
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="billing_address" type="object">
+  Billing address information
+  <Expandable title="Show object properties">
+    <ParamField body="first_name" type="string" required>
+      First name for billing
+    </ParamField>
+    <ParamField body="last_name" type="string" required>
+      Last name for billing
+    </ParamField>
+    <ParamField body="address1" type="string" required>
+      Primary address line
+    </ParamField>
+    <ParamField body="address2" type="string">
+      Secondary address line
+    </ParamField>
+    <ParamField body="phone" type="string" required>
+      Phone number for billing
+    </ParamField>
+    <ParamField body="city" type="string" required>
+      City for billing
+    </ParamField>
+    <ParamField body="zip" type="string" required>
+      ZIP or postal code
+    </ParamField>
+    <ParamField body="company" type="string">
+      Company name, if applicable
+    </ParamField>
+    <ParamField body="country_code" type="string" required>
+      Country code
+    </ParamField>
+    <ParamField body="province" type="string">
+      Province or state
+    </ParamField>
+    <ParamField body="country" type="string" required>
+      Country name
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="created_at" type="string" required>
+  The date and time when the order was created
+</ParamField>
+
+<ParamField body="email" type="string">
+  Customer's email address
+</ParamField>
+
+<ParamField body="customer" type="object">
+  Customer information
+  <Expandable title="Show object properties">
+    <ParamField body="id" type="string" required>
+      Customer's unique identifier
+    </ParamField>
+    <ParamField body="first_name" type="string">
+      Customer's first name
+    </ParamField>
+    <ParamField body="last_name" type="string">
+      Customer's last name
+    </ParamField>
+    <ParamField body="phone" type="string">
+      Customer's phone number
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="order_number" type="number">
+  The order number
+</ParamField>
+
+<ParamField body="total_price" type="string" required>
+  The total price of the order
+</ParamField>
+
+<ParamField body="payment_gateway_names" type="string[]" required>
+  An array of payment gateway names used for the order
+</ParamField>
+
+<ParamField body="line_items" type="array" required>
+  An array of items in the order
+  <Expandable title="Show array item properties">
+    <ParamField body="price" type="string" required>
+      Price of the item
+    </ParamField>
+    <ParamField body="quantity" type="number" required>
+      Quantity of the item
+    </ParamField>
+    <ParamField body="title" type="string" required>
+      Title of the item
+    </ParamField>
+    <ParamField body="variant_title" type="string">
+      Title of the item variant, if applicable
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="financial_status" type="string" required>
+  The financial status of the order
+  <Expandable title="Possible values">
+    'authorized' | 'pending' | 'paid' | 'partially_paid' | 'refunded' | 'voided' | 'partially_refunded' | 'unpaid'
+  </Expandable>
+</ParamField>
+
+<ParamField body="phone" type="string" required>
+  The phone number associated with the order
+</ParamField>
+
+<ParamField body="fulfillments" type="array">
+  An array of fulfillment information
+  <Expandable title="Show array item properties">
+    <ParamField body="id" type="string" required>
+      Fulfillment ID
+    </ParamField>
+    <ParamField body="shipment_status" type="string" required>
+      Status of the shipment
+    </ParamField>
+    <ParamField body="tracking_company" type="string" required>
+      Name of the tracking company
+    </ParamField>
+    <ParamField body="tracking_url" type="string" required>
+      URL for tracking the shipment
+    </ParamField>
+    <ParamField body="tracking_urls" type="string[]" required>
+      Array of tracking URLs
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="order_status_url" type="string">
+  URL to check the order status
+</ParamField>
+
