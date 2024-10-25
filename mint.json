@@ -63,5 +63,11 @@
   "footerSocials": {
     "instagram": "https://www.instagram.com/text_yess",
     "linkedin": "https://www.linkedin.com/company/textyess/"
-  }
+  },
+  "api": {
+    "baseUrl": "https://mintlify.com/api",
+    "auth": {
+      "method": "bearer"
+    }
+}
 }
