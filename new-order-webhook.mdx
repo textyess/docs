@@ -33,40 +33,40 @@ The webhook for new orders allows TextYess to receive data and manage data from 
   country_code: "US",
   province: "NY",
   country: "United States"
-}}>
+}} placeholder="{ first_name: 'Alice', last_name: 'Johnson', ... }">
   Shipping address information
   <Expandable title="Show object properties">
-    <ParamField body="first_name" type="string" required initialValue="Alice">
+    <ParamField body="first_name" type="string" required initialValue="Alice" placeholder="Alice">
       First name for shipping
     </ParamField>
-    <ParamField body="last_name" type="string" required initialValue="Johnson">
+    <ParamField body="last_name" type="string" required initialValue="Johnson" placeholder="Johnson">
       Last name for shipping
     </ParamField>
-    <ParamField body="address1" type="string" required initialValue="123 Main St">
+    <ParamField body="address1" type="string" required initialValue="123 Main St" placeholder="123 Main St">
       Primary address line
     </ParamField>
-    <ParamField body="address2" type="string" initialValue="Apt 4B">
+    <ParamField body="address2" type="string" initialValue="Apt 4B" placeholder="Apt 4B">
       Secondary address line
     </ParamField>
-    <ParamField body="phone" type="string" required initialValue="+1 (555) 246-8135">
+    <ParamField body="phone" type="string" required initialValue="+1 (555) 246-8135" placeholder="+1 (555) 246-8135">
       Phone number for shipping
     </ParamField>
-    <ParamField body="city" type="string" required initialValue="New York">
+    <ParamField body="city" type="string" required initialValue="New York" placeholder="New York">
       City for shipping
     </ParamField>
-    <ParamField body="zip" type="string" required initialValue="10001">
+    <ParamField body="zip" type="string" required initialValue="10001" placeholder="10001">
       ZIP or postal code
     </ParamField>
-    <ParamField body="company" type="string" initialValue="Tech Innovations Inc">
+    <ParamField body="company" type="string" initialValue="Tech Innovations Inc" placeholder="Tech Innovations Inc">
       Company name, if applicable
     </ParamField>
-    <ParamField body="country_code" type="string" required initialValue="US">
+    <ParamField body="country_code" type="string" required initialValue="US" placeholder="US">
       Country code
     </ParamField>
-    <ParamField body="province" type="string" initialValue="NY">
+    <ParamField body="province" type="string" initialValue="NY" placeholder="NY">
       Province or state
     </ParamField>
-    <ParamField body="country" type="string" required initialValue="United States">
+    <ParamField body="country" type="string" required initialValue="United States" placeholder="United States">
       Country name
     </ParamField>
   </Expandable>
@@ -84,50 +84,50 @@ The webhook for new orders allows TextYess to receive data and manage data from 
   country_code: "US",
   province: "NY",
   country: "United States"
-}}>
+}} placeholder="{ first_name: 'Alice', last_name: 'Johnson', ... }">
   Billing address information
   <Expandable title="Show object properties">
-    <ParamField body="first_name" type="string" required initialValue="Alice">
+    <ParamField body="first_name" type="string" required initialValue="Alice" placeholder="Alice">
       First name for billing
     </ParamField>
-    <ParamField body="last_name" type="string" required initialValue="Johnson">
+    <ParamField body="last_name" type="string" required initialValue="Johnson" placeholder="Johnson">
       Last name for billing
     </ParamField>
-    <ParamField body="address1" type="string" required initialValue="123 Main St">
+    <ParamField body="address1" type="string" required initialValue="123 Main St" placeholder="123 Main St">
       Primary address line
     </ParamField>
-    <ParamField body="address2" type="string" initialValue="Apt 4B">
+    <ParamField body="address2" type="string" initialValue="Apt 4B" placeholder="Apt 4B">
       Secondary address line
     </ParamField>
-    <ParamField body="phone" type="string" required initialValue="+1 (555) 246-8135">
+    <ParamField body="phone" type="string" required initialValue="+1 (555) 246-8135" placeholder="+1 (555) 246-8135">
       Phone number for billing
     </ParamField>
-    <ParamField body="city" type="string" required initialValue="New York">
+    <ParamField body="city" type="string" required initialValue="New York" placeholder="New York">
       City for billing
     </ParamField>
-    <ParamField body="zip" type="string" required initialValue="10001">
+    <ParamField body="zip" type="string" required initialValue="10001" placeholder="10001">
       ZIP or postal code
     </ParamField>
-    <ParamField body="company" type="string" initialValue="Tech Innovations Inc">
+    <ParamField body="company" type="string" initialValue="Tech Innovations Inc" placeholder="Tech Innovations Inc">
       Company name, if applicable
     </ParamField>
-    <ParamField body="country_code" type="string" required initialValue="US">
+    <ParamField body="country_code" type="string" required initialValue="US" placeholder="US">
       Country code
     </ParamField>
-    <ParamField body="province" type="string" initialValue="NY">
+    <ParamField body="province" type="string" initialValue="NY" placeholder="NY">
       Province or state
     </ParamField>
-    <ParamField body="country" type="string" required initialValue="United States">
+    <ParamField body="country" type="string" required initialValue="United States" placeholder="United States">
       Country name
     </ParamField>
   </Expandable>
 </ParamField>
 
-<ParamField body="created_at" type="string" required initialValue="2023-04-15T14:30:00Z">
+<ParamField body="created_at" type="string" required initialValue="2023-04-15T14:30:00Z" placeholder="2023-04-15T14:30:00Z">
   The date and time when the order was created
 </ParamField>
 
-<ParamField body="email" type="string" initialValue="alice.johnson@example.com">
+<ParamField body="email" type="string" initialValue="alice.johnson@example.com" placeholder="alice.johnson@example.com">
   Customer's email address
 </ParamField>
 
@@ -136,33 +136,33 @@ The webhook for new orders allows TextYess to receive data and manage data from 
   first_name: "Alice",
   last_name: "Johnson",
   phone: "+1 (555) 246-8135"
-}}>
+}} placeholder="{ id: 'cust_87654321', first_name: 'Alice', ... }">
   Customer information
   <Expandable title="Show object properties">
-    <ParamField body="id" type="string" required initialValue="cust_87654321">
+    <ParamField body="id" type="string" required initialValue="cust_87654321" placeholder="cust_87654321">
       Customer's unique identifier
     </ParamField>
-    <ParamField body="first_name" type="string" initialValue="Alice">
+    <ParamField body="first_name" type="string" initialValue="Alice" placeholder="Alice">
       Customer's first name
     </ParamField>
-    <ParamField body="last_name" type="string" initialValue="Johnson">
+    <ParamField body="last_name" type="string" initialValue="Johnson" placeholder="Johnson">
       Customer's last name
     </ParamField>
-    <ParamField body="phone" type="string" initialValue="+1 (555) 246-8135">
+    <ParamField body="phone" type="string" initialValue="+1 (555) 246-8135" placeholder="+1 (555) 246-8135">
       Customer's phone number
     </ParamField>
   </Expandable>
 </ParamField>
 
-<ParamField body="order_number" type="number" initialValue={1001}>
+<ParamField body="order_number" type="number" initialValue={1001} placeholder="1001">
   The order number
 </ParamField>
 
-<ParamField body="total_price" type="string" required initialValue="129.99">
+<ParamField body="total_price" type="string" required initialValue="129.99" placeholder="129.99">
   The total price of the order
 </ParamField>
 
-<ParamField body="payment_gateway_names" type="string[]" required initialValue={["stripe", "paypal"]}>
+<ParamField body="payment_gateway_names" type="string[]" required initialValue={["stripe", "paypal"]} placeholder="['stripe', 'paypal']">
   An array of payment gateway names used for the order
 </ParamField>
 
@@ -179,32 +179,32 @@ The webhook for new orders allows TextYess to receive data and manage data from 
     title: "Gadget B",
     variant_title: null
   }
-]}>
+]} placeholder="[{ price: '49.99', quantity: 2, ... }, ...]">
   An array of items in the order
   <Expandable title="Show array item properties">
-    <ParamField body="price" type="string" required initialValue="49.99">
+    <ParamField body="price" type="string" required initialValue="49.99" placeholder="49.99">
       Price of the item
     </ParamField>
-    <ParamField body="quantity" type="number" required initialValue={2}>
+    <ParamField body="quantity" type="number" required initialValue={2} placeholder="2">
       Quantity of the item
     </ParamField>
-    <ParamField body="title" type="string" required initialValue="Widget A">
+    <ParamField body="title" type="string" required initialValue="Widget A" placeholder="Widget A">
       Title of the item
     </ParamField>
-    <ParamField body="variant_title" type="string" initialValue="Large">
+    <ParamField body="variant_title" type="string" initialValue="Large" placeholder="Large">
       Title of the item variant, if applicable
     </ParamField>
   </Expandable>
 </ParamField>
 
-<ParamField body="financial_status" type="string" required initialValue="paid">
+<ParamField body="financial_status" type="string" required initialValue="paid" placeholder="paid">
   The financial status of the order
   <Expandable title="Possible values">
     'authorized' | 'pending' | 'paid' | 'partially_paid' | 'refunded' | 'voided' | 'partially_refunded' | 'unpaid'
   </Expandable>
 </ParamField>
 
-<ParamField body="phone" type="string" required initialValue="+1 (555) 246-8135">
+<ParamField body="phone" type="string" required initialValue="+1 (555) 246-8135" placeholder="+1 (555) 246-8135">
   The phone number associated with the order
 </ParamField>
 
@@ -216,31 +216,30 @@ The webhook for new orders allows TextYess to receive data and manage data from 
     tracking_url: "https://www.fedex.com/tracking/123456789",
     tracking_urls: ["https://www.fedex.com/tracking/123456789"]
   }
-]}>
+]} placeholder="[{ id: 'ful_12345678', shipment_status: 'shipped', ... }]">
   An array of fulfillment information
   <Expandable title="Show array item properties">
-    <ParamField body="id" type="string" required initialValue="ful_12345678">
+    <ParamField body="id" type="string" required initialValue="ful_12345678" placeholder="ful_12345678">
       Fulfillment ID
     </ParamField>
-    <ParamField body="shipment_status" type="string" required initialValue="shipped">
+    <ParamField body="shipment_status" type="string" required initialValue="shipped" placeholder="shipped">
       Status of the shipment
     </ParamField>
-    <ParamField body="tracking_company" type="string" required initialValue="FedEx">
+    <ParamField body="tracking_company" type="string" required initialValue="FedEx" placeholder="FedEx">
       Name of the tracking company
     </ParamField>
-    <ParamField body="tracking_url" type="string" required initialValue="https://www.fedex.com/tracking/123456789">
+    <ParamField body="tracking_url" type="string" required initialValue="https://www.fedex.com/tracking/123456789" placeholder="https://www.fedex.com/tracking/123456789">
       URL for tracking the shipment
     </ParamField>
-    <ParamField body="tracking_urls" type="string[]" required initialValue={["https://www.fedex.com/tracking/123456789"]}>
+    <ParamField body="tracking_urls" type="string[]" required initialValue={["https://www.fedex.com/tracking/123456789"]} placeholder="['https://www.fedex.com/tracking/123456789']">
       Array of tracking URLs
     </ParamField>
   </Expandable>
 </ParamField>
 
-<ParamField body="order_status_url" type="string" initialValue="https://example.com/orders/status/ord_12345678">
+<ParamField body="order_status_url" type="string" initialValue="https://example.com/orders/status/ord_12345678" placeholder="https://example.com/orders/status/ord_12345678">
   URL to check the order status
 </ParamField>
-
 ### Response
 
 <ResponseField name="success" type="boolean">
