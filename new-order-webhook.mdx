@@ -9,17 +9,17 @@ authMethod: "none"
 
 The webhook for new orders allows TextYess to receive data and manage data from newly created orders. Receiving this data allows TextYess to unlock enchaced analytics and provide one of the most powerfull automation.
 
-<ParamField body="id" type="string" required>
+<ParamField body="id" type="string" required initialValue="1234">
   The id of the order
 </ParamField>
 
 <ParamField body="shipping_address" type="object">
   Shipping address information
   <Expandable title="Show object properties">
-    <ParamField body="first_name" type="string" required>
+    <ParamField body="first_name" type="string" required initialValue="John">
       First name for shipping
     </ParamField>
-    <ParamField body="last_name" type="string" required>
+    <ParamField body="last_name" type="string" required initialValue="Doe">
       Last name for shipping
     </ParamField>
     <ParamField body="address1" type="string" required>
