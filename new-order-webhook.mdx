@@ -204,7 +204,7 @@ The webhook for new orders allows TextYess to receive data and manage data from 
   </Expandable>
 </ParamField>
 
-<ParamField body="phone" type="string" required initialValue="+1 (555) 246-8135" placeholder="+1 (555) 246-8135">
+<ParamField body="phone" type="string" required initialValue="+15552468135" placeholder="+15552468135">
   The phone number associated with the order
 </ParamField>
 
@@ -216,7 +216,7 @@ The webhook for new orders allows TextYess to receive data and manage data from 
     tracking_url: "https://www.fedex.com/tracking/123456789",
     tracking_urls: ["https://www.fedex.com/tracking/123456789"]
   }
-]} placeholder="[{ id: 'ful_12345678', shipment_status: 'shipped', ... }]">
+]} >
   An array of fulfillment information
   <Expandable title="Show array item properties">
     <ParamField body="id" type="string" required initialValue="ful_12345678" placeholder="ful_12345678">
