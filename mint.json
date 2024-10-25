@@ -42,8 +42,7 @@
         "widget-installation-woocommerce",
         "connect-prestashop",
         "widget-installation-prestashop",
-        "analytics",
-        "new-order-webhooks"
+        "analytics"
       ]
     },
     {
@@ -56,7 +55,8 @@
         "textyess-on-smartphones",
         "setup-gorgias",
         "setup-zendesk",
-        "off-boarding"
+        "off-boarding",
+        "new-order-webhook"
       ]
     }
   ],
