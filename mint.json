@@ -58,6 +58,12 @@
         "off-boarding",
         "new-order-webhook"
       ]
+    },
+     {
+      "group": "Endpoints",
+      "pages": [
+        "new-order-webhook"
+      ]
     }
   ],
   "footerSocials": {
@@ -65,7 +71,7 @@
     "linkedin": "https://www.linkedin.com/company/textyess/"
   },
   "api": {
-    "baseUrl": "https://mintlify.com/api",
+    "baseUrl": "https://api-ai.textyess.com",
     "auth": {
       "method": "bearer"
     }
