@@ -42,7 +42,8 @@
         "widget-installation-woocommerce",
         "connect-prestashop",
         "widget-installation-prestashop",
-        "analytics"
+        "analytics",
+        "new-order-webhooks"
       ]
     },
     {
