@@ -1,0 +1,78 @@
+---
+title: "Flow Webhook"
+api: "POST /webhooks/flows/{id}"
+description: "Learn how to trigger flows through webhooks"
+authMethod: "none"
+---
+
+## Overview
+
+The Flow webhook enables you to trigger automated WhatsApp message flows by sending HTTP POST requests. When a valid request is received, the system processes the data and initiates the flow execution, sending template messages through WhatsApp.
+
+### Path Parameters
+
+<ParamField path="id" type="string" required>
+  The ID of the flow you want to trigger. You can find your flow ID in the
+  TextYess UI.
+</ParamField>
+
+### Body Parameters
+
+<ParamField body="first_name" type="string" required initialValue="John" placeholder="John">
+  The first name of the recipient
+</ParamField>
+
+<ParamField body="phone_number" type="string" required initialValue="3475156348" placeholder="3475156348">
+  The recipient's phone number, without the country code
+</ParamField>
+
+<ParamField body="country_code" type="string" required initialValue="US" placeholder="US">
+  The two-letter country code. Must match the template message language.
+</ParamField>
+
+<ParamField body="custom_url" type="string" initialValue="https://example.com/user/john" placeholder="https://example.com/user/john">
+  Optional URL for custom redirects. For abandoned cart automations, this should
+  be the cart recovery URL.
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="number">
+  HTTP status code indicating the result of the request
+</ResponseField>
+
+<ResponseField name="message" type="string">
+  A message describing the result of the request
+</ResponseField>
+
+<ResponseExample>
+  ```json 200
+  {
+    "status": 200,
+    "message": "webhook received successfully"
+  }
+  ```
+
+  ```json 400
+  {
+    "status": 400,
+    "error": "Invalid message format"
+  }
+  ```
+</ResponseExample>
+
+## Important Notes
+
+1. Rate Limiting: The same phone number cannot receive identical template messages within a 3-hour window.
+
+2. Abandoned Cart Automation: When building abandoned cart flows:
+
+   * The `custom_url` in the payload must be the cart recovery URL
+
+   * In the "Send template message" action of type "Abandoned checkout", only call-to-action text can be customized (not the link)
+
+3. Language Requirements: The template language must match the country code in the payload:
+
+   * Example: If the template is in Italian (IT), the `country_code` must be "IT"
+
+   * Mismatched languages will prevent template message delivery
