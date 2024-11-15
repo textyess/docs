@@ -13,7 +13,6 @@ Webhook Flow enables automatic WhatsApp message flows by sending HTTP POST reque
 
 <ParamField path="id" type="string" required>
   The ID of the flow you want to trigger.You cab find the flow id by clicking on the trigger, if the flow you created is a webhook type.
-
 </ParamField>
 
 ### Body Parameters
@@ -22,8 +21,8 @@ Webhook Flow enables automatic WhatsApp message flows by sending HTTP POST reque
   The first name of the recipient
 </ParamField>
 
-<ParamField body="phone_number" type="string" required initialValue="3475156348" placeholder="3475156348">
-  The recipient's phone number, without the country code
+<ParamField body="phone_number" type="string" required initialValue="+393475156348" placeholder="3475156348">
+  The recipient's phone number
 </ParamField>
 
 <ParamField body="country_code" type="string" required initialValue="US" placeholder="US">
