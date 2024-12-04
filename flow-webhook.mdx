@@ -34,6 +34,10 @@ Webhook Flow enables automatic WhatsApp message flows by sending HTTP POST reque
   be the cart recovery URL.
 </ParamField>
 
+<ParamField body="discount_code" type="string" initialValue="DISCOUNT10" placeholder="DISCOUNT10">
+  Optional discount code that you can send to the user. This will allow you to send unique discount code for each user directly into the WhatsApp template.
+</ParamField>
+
 ### Response
 
 <ResponseField name="status" type="number">
