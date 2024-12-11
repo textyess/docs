@@ -126,7 +126,7 @@ country: "United States"
     </ParamField>
 
     <ParamField body="phone" type="string" required initialValue="+15552468135" placeholder="+15552468135">
-      Phone number for billing
+      Phone number for billing 
     </ParamField>
 
     <ParamField body="city" type="string" required initialValue="New York" placeholder="New York">
@@ -181,11 +181,11 @@ phone: "+15552468135"
       Customer's unique identifier
     </ParamField>
 
-    <ParamField body="first_name" type="string" initialValue="Alice" placeholder="Alice">
+    <ParamField body="first_name" type="string" initialValue="Alice" placeholder="Alice" required>
       Customer's first name
     </ParamField>
 
-    <ParamField body="last_name" type="string" initialValue="Johnson" placeholder="Johnson">
+    <ParamField body="last_name" type="string" initialValue="Johnson" placeholder="Johnson" required>
       Customer's last name
     </ParamField>
 
@@ -213,16 +213,16 @@ phone: "+15552468135"
   required
   initialValue={[
 {
-  price: "49.99",
-  quantity: 2,
-  title: "Widget A",
-  variant_title: "Large"
+price: "49.99",
+quantity: 2,
+title: "Widget A",
+variant_title: "Large"
 },
 {
-  price: "29.99",
-  quantity: 1,
-  title: "Gadget B",
-  variant_title: null
+price: "29.99",
+quantity: 1,
+title: "Gadget B",
+variant_title: null
 }
 ]}
   placeholder="[{ price: '49.99', quantity: 2, title='Widget A'},]"
@@ -257,7 +257,7 @@ phone: "+15552468135"
 </ParamField>
 
 <ParamField body="phone" type="string" required initialValue="+15552468135" placeholder="+15552468135">
-  The phone number associated with the order
+  The phone number associated with the order  (must start with dial code eg: +39)
 </ParamField>
 
 <ParamField
@@ -265,11 +265,11 @@ phone: "+15552468135"
   type="array"
   initialValue={[
 {
-  id: "ful_12345678",
-  shipment_status: "shipped",
-  tracking_company: "FedEx",
-  tracking_url: "https://www.fedex.com/tracking/123456789",
-  tracking_urls: ["https://www.fedex.com/tracking/123456789"]
+id: "ful_12345678",
+shipment_status: "shipped",
+tracking_company: "FedEx",
+tracking_url: "https://www.fedex.com/tracking/123456789",
+tracking_urls: ["https://www.fedex.com/tracking/123456789"]
 }
 ]}
 >
