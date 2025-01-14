@@ -61,6 +61,7 @@
      {
       "group": "Endpoints",
       "pages": [
+        "products-api",
         "new-order-webhook",
          "flow-webhook"
       ]
