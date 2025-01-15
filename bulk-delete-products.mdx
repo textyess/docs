@@ -7,4 +7,22 @@ description: "Delete multiple products at once from your catalog"
 ## Overview
 
 The bulk delete endpoint allows you to remove multiple products from your catalog in a single request. This is useful for cleaning up outdated products or removing products in batch.
+
+## Authentication
+
+This endpoint requires a valid JWT token in the Authorization header:
+```bash
+Authorization: Bearer your_jwt_token
+```
+
+## Query Parameters
+
+<ParamField
+  query="ids"
+  type="string"
+  required
+  initialValue="prod_12345,prod_67890"
+>
+  Comma-separated list of product IDs to delete. For example: `ids=prod_12345,prod_67890,prod_11111`
+</ParamField>
  
