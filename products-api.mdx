@@ -1,6 +1,7 @@
 ---
 title: "Products API"
 description: "Learn how to manage your products through our API"
+authMethod: "x-auth-token"
 ---
 
 ## Overview
@@ -30,20 +31,20 @@ Authorization: Bearer your_jwt_token
   type="array"
   required
   initialValue={[{
-    id: "prod_12345",
-    title: "Sample Product",
-    description: "A detailed product description",
-    image: "https://example.com/image.jpg",
-    url: "https://yourstore.com/products/sample-product",
-    variants: [{
-      id: "var_12345",
-      title: "Default Variant",
-      price: "29.99",
-      inventory_quantity: 100,
-      variant_url: "https://yourstore.com/products/sample-product/variant"
-    }],
-    collections: ["New Arrivals", "Featured"]
-  }]}
+  id: "prod_12345",
+  title: "Sample Product",
+  description: "A detailed product description",
+  image: "https://example.com/image.jpg",
+  url: "https://yourstore.com/products/sample-product",
+  variants: [{
+    id: "var_12345",
+    title: "Default Variant",
+    price: "29.99",
+    inventory_quantity: 100,
+    variant_url: "https://yourstore.com/products/sample-product/variant"
+  }],
+  collections: ["New Arrivals", "Featured"]
+}]}
 >
   Array of products to import
 
@@ -97,7 +98,6 @@ Authorization: Bearer your_jwt_token
     <ParamField body="collections" type="array">
       Array of collection names this product belongs to
     </ParamField>
-
   </Expandable>
 </ParamField>
 
@@ -114,24 +114,24 @@ Authorization: Bearer your_jwt_token
   type="array"
   required
   initialValue={[
-    {
-      id: "prod_12345",
-      title: "Updated Product",
-      description: "An updated product description",
-      image: "https://example.com/updated-image.jpg",
-      url: "https://yourstore.com/products/updated-product",
-      variants: [
-        {
-          id: "var_12345",
-          title: "Updated Variant",
-          price: "39.99",
-          inventory_quantity: 75,
-          variant_url: "https://yourstore.com/products/updated-product/variant",
-        },
-      ],
-      collections: ["Best Sellers"],
-    },
-  ]}
+  {
+    id: "prod_12345",
+    title: "Updated Product",
+    description: "An updated product description",
+    image: "https://example.com/updated-image.jpg",
+    url: "https://yourstore.com/products/updated-product",
+    variants: [
+      {
+        id: "var_12345",
+        title: "Updated Variant",
+        price: "39.99",
+        inventory_quantity: 75,
+        variant_url: "https://yourstore.com/products/updated-product/variant",
+      },
+    ],
+    collections: ["Best Sellers"],
+  },
+]}
 >
   Array of products to update. The structure is identical to the bulk import
   endpoint. Only include the fields you want to update - omitted fields will
@@ -146,12 +146,7 @@ Authorization: Bearer your_jwt_token
 
 #### Query Parameters
 
-<ParamField
-  query="ids"
-  type="string"
-  required
-  initialValue="prod_12345,prod_67890"
->
+<ParamField query="ids" type="string" required initialValue="prod_12345,prod_67890">
   Comma-separated list of product IDs to delete
 </ParamField>
 
@@ -188,60 +183,64 @@ All endpoints return a consistent response format:
 </ResponseField>
 
 <ResponseExample>
-```json 200
-{
-  "success": true,
-  "message": "Operation completed successfully",
-  "data": {
-    "processed": 2,
-    "failed": 0
+  ```json 200
+  {
+    "success": true,
+    "message": "Operation completed successfully",
+    "data": {
+      "processed": 2,
+      "failed": 0
+    }
   }
-}
-```
+  ```
 
-```json 400
-{
-  "code": 400,
-  "message": "Invalid request",
-  "error": {
-    "details": "Invalid product structure"
+  ```json 400
+  {
+    "code": 400,
+    "message": "Invalid request",
+    "error": {
+      "details": "Invalid product structure"
+    }
   }
-}
-```
+  ```
 
-```json 401
-{
-  "code": 401,
-  "message": "Unauthorized",
-  "error": {
-    "details": "Invalid or missing JWT token"
+  ```json 401
+  {
+    "code": 401,
+    "message": "Unauthorized",
+    "error": {
+      "details": "Invalid or missing JWT token"
+    }
   }
-}
-```
+  ```
 
-```json 429
-{
-  "code": 429,
-  "message": "Too Many Requests",
-  "error": {
-    "details": "Rate limit exceeded"
+  ```json 429
+  {
+    "code": 429,
+    "message": "Too Many Requests",
+    "error": {
+      "details": "Rate limit exceeded"
+    }
   }
-}
-```
-
+  ```
 </ResponseExample>
 
 ## Rate Limiting
 
 The API implements rate limiting to ensure fair usage. The current limits are:
 
-- Bulk Import: 1000 products per request
-- Bulk Update: 500 products per request
-- Bulk Delete: 200 products per request
+* Bulk Import: 1000 products per request
+
+* Bulk Update: 500 products per request
+
+* Bulk Delete: 200 products per request
 
 ## Best Practices
 
 1. **Batching**: When dealing with large numbers of products, break them into smaller batches to avoid timeouts and rate limits.
+
 2. **Retries**: Implement exponential backoff for retries when encountering rate limits or temporary failures.
+
 3. **Validation**: Always validate your product data before sending it to avoid partial updates.
+
 4. **Idempotency**: Operations are idempotent - duplicate requests with the same data won't create duplicate products.
