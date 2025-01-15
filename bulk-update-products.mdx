@@ -1,0 +1,169 @@
+---
+title: "Bulk Update Products"
+api: "POST /products/bulk-update"
+description: "Update multiple products at once in your catalog"
+authMethod: "bearer"
+---
+
+## Overview
+
+The bulk update endpoint allows you to modify multiple existing products in your catalog simultaneously. This is useful for updating prices, inventory, or product details in batch.
+
+## Authentication
+
+This endpoint requires a valid JWT token in the Authorization header:
+```bash
+Authorization: Bearer your_jwt_token
+```
+
+## Body Parameters
+
+<ParamField
+  body="products"
+  type="array"
+  required
+  initialValue={[{
+    id: "prod_12345",
+    title: "Updated Product",
+    description: "An updated product description",
+    image: "https://example.com/updated-image.jpg",
+    url: "https://yourstore.com/products/updated-product",
+    variants: [{
+      id: "var_12345",
+      title: "Updated Variant",
+      price: "39.99",
+      inventory_quantity: 75,
+      variant_url: "https://yourstore.com/products/updated-product/variant"
+    }],
+    collections: ["Best Sellers"]
+  }]}
+>
+  Array of products to update. Only include the fields you want to modify - omitted fields will remain unchanged.
+
+  <Expandable title="Show product properties">
+    <ParamField body="id" type="string" required>
+      Unique identifier for the product (required to identify which product to update)
+    </ParamField>
+
+    <ParamField body="title" type="string">
+      Updated product title
+    </ParamField>
+
+    <ParamField body="description" type="string">
+      Updated product description
+    </ParamField>
+
+    <ParamField body="image" type="string">
+      Updated product image URL
+    </ParamField>
+
+    <ParamField body="url" type="string">
+      Updated product page URL
+    </ParamField>
+
+    <ParamField body="variants" type="array">
+      Updated array of product variants
+      
+      <Expandable title="Show variant properties">
+        <ParamField body="id" type="string" required>
+          Unique identifier for the variant (required to identify which variant to update)
+        </ParamField>
+
+        <ParamField body="title" type="string">
+          Updated variant title
+        </ParamField>
+
+        <ParamField body="price" type="string">
+          Updated variant price
+        </ParamField>
+
+        <ParamField body="inventory_quantity" type="number">
+          Updated available quantity
+        </ParamField>
+
+        <ParamField body="variant_url" type="string">
+          Updated URL for this specific variant
+        </ParamField>
+      </Expandable>
+    </ParamField>
+
+    <ParamField body="collections" type="array">
+      Updated array of collection names this product belongs to
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+## Response
+
+<ResponseField name="success" type="boolean">
+  Indicates if the update was successful
+</ResponseField>
+
+<ResponseField name="message" type="string">
+  A human-readable message describing the result
+</ResponseField>
+
+<ResponseField name="data" type="object">
+  <ResponseField name="processed" type="number">
+    Number of products successfully updated
+  </ResponseField>
+  <ResponseField name="failed" type="number">
+    Number of products that failed to update
+  </ResponseField>
+</ResponseField>
+
+<ResponseExample>
+```json 200
+{
+  "success": true,
+  "message": "Products updated successfully",
+  "data": {
+    "processed": 2,
+    "failed": 0
+  }
+}
+```
+
+```json 400
+{
+  "code": 400,
+  "message": "Invalid request",
+  "error": {
+    "details": "Invalid product structure"
+  }
+}
+```
+
+```json 401
+{
+  "code": 401,
+  "message": "Unauthorized",
+  "error": {
+    "details": "Invalid or missing JWT token"
+  }
+}
+```
+
+```json 429
+{
+  "code": 429,
+  "message": "Too Many Requests",
+  "error": {
+    "details": "Rate limit exceeded"
+  }
+}
+```
+</ResponseExample>
+
+## Rate Limiting
+
+The bulk update endpoint is limited to 500 products per request to ensure optimal performance.
+
+## Best Practices
+
+1. **Partial Updates**: Only include fields that need to be updated - omitted fields will retain their current values.
+2. **Batch Size**: Keep batches under 500 products to avoid rate limits.
+3. **Error Handling**: Implement retry logic with exponential backoff for rate limit errors.
+4. **Validation**: Always include the product and variant IDs to ensure correct updates.
+5. **Idempotency**: The operation is idempotent - sending the same update multiple times won't cause issues.
+</rewritten_file> 

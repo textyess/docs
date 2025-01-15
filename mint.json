@@ -58,12 +58,19 @@
         "off-boarding"
       ]
     },
-     {
+    {
       "group": "Endpoints",
       "pages": [
-        "products-api",
+        {
+          "group": "Products",
+          "pages": [
+            "bulk-import-products",
+            "bulk-update-products",
+            "bulk-delete-products"
+          ]
+        },
         "new-order-webhook",
-         "flow-webhook"
+        "flow-webhook"
       ]
     }
   ],
@@ -77,5 +84,5 @@
       "method": "key",
       "name": "x-auth-token"
     }
-}
+  }
 }
