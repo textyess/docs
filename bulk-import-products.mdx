@@ -2,95 +2,56 @@
 title: "Bulk Import Products"
 api: "POST /products/bulk-import"
 description: "Import multiple products at once into your catalog"
+authMethod: "key"
 ---
 
 ## Overview
 
-The bulk import endpoint allows you to add multiple products to your catalog in a single request. This is useful for initial catalog setup or synchronizing products from your e-commerce platform.
+The bulk import endpoint allows you to add multiple products to your catalog by providing a URL to a JSON file containing your products data. This is useful for initial catalog setup or synchronizing products from your e-commerce platform.
 
 ## Authentication
 
-This endpoint requires a valid JWT token in the Authorization header:
+This endpoint requires a valid JWT token in the `x-auth-token` header. You can find your token in the [Developers section](https://ai.textyess.com/developers):
 ```bash
-Authorization: Bearer your_jwt_token
+x-auth-token: your_jwt_token
 ```
 
 ## Body Parameters
 
 <ParamField
-  body="products"
-  type="array"
+  body="file_url"
+  type="string"
   required
-  initialValue={[{
-    id: "prod_12345",
-    title: "Sample Product",
-    description: "A detailed product description",
-    image: "https://example.com/image.jpg",
-    url: "https://yourstore.com/products/sample-product",
-    variants: [{
-      id: "var_12345",
-      title: "Default Variant",
-      price: "29.99",
-      inventory_quantity: 100,
-      variant_url: "https://yourstore.com/products/sample-product/variant"
-    }],
-    collections: ["New Arrivals", "Featured"]
-  }]}
+  initialValue="https://example.com/products.json"
 >
-  Array of products to import
-
-  <Expandable title="Show product properties">
-    <ParamField body="id" type="string" required>
-      Unique identifier for the product
-    </ParamField>
-
-    <ParamField body="title" type="string" required>
-      Product title
-    </ParamField>
-
-    <ParamField body="description" type="string" required>
-      Detailed product description
-    </ParamField>
-
-    <ParamField body="image" type="string">
-      URL of the product's featured image
-    </ParamField>
-
-    <ParamField body="url" type="string" required>
-      Product page URL
-    </ParamField>
-
-    <ParamField body="variants" type="array" required>
-      Array of product variants
-      
-      <Expandable title="Show variant properties">
-        <ParamField body="id" type="string" required>
-          Unique identifier for the variant
-        </ParamField>
-
-        <ParamField body="title" type="string" required>
-          Variant title
-        </ParamField>
-
-        <ParamField body="price" type="string" required>
-          Variant price
-        </ParamField>
-
-        <ParamField body="inventory_quantity" type="number" required>
-          Available quantity
-        </ParamField>
-
-        <ParamField body="variant_url" type="string" required>
-          URL for this specific variant
-        </ParamField>
-      </Expandable>
-    </ParamField>
-
-    <ParamField body="collections" type="array">
-      Array of collection names this product belongs to
-    </ParamField>
-  </Expandable>
+  A valid URL pointing to a JSON file containing your products data. The file should be publicly accessible.
 </ParamField>
+
+### Expected JSON File Structure
+
+Your JSON file should contain an array of products with the following structure:
+
+```json
+[
+  {
+    "id": "prod_12345",
+    "title": "Sample Product",
+    "description": "A detailed product description",
+    "image": "https://example.com/image.jpg",
+    "url": "https://yourstore.com/products/sample-product",
+    "variants": [
+      {
+        "id": "var_12345",
+        "title": "Default Variant",
+        "price": "29.99",
+        "inventory_quantity": 100,
+        "variant_url": "https://yourstore.com/products/sample-product/variant"
+      }
+    ],
+    "collections": ["New Arrivals", "Featured"]
+  }
+]
+```
 
 ## Response
 
@@ -128,7 +89,7 @@ Authorization: Bearer your_jwt_token
   "code": 400,
   "message": "Invalid request",
   "error": {
-    "details": "Invalid product structure"
+    "details": "Invalid file URL"
   }
 }
 ```
@@ -138,7 +99,7 @@ Authorization: Bearer your_jwt_token
   "code": 401,
   "message": "Unauthorized",
   "error": {
-    "details": "Invalid or missing JWT token"
+    "details": "Invalid or missing API token"
   }
 }
 ```
@@ -156,11 +117,12 @@ Authorization: Bearer your_jwt_token
 
 ## Rate Limiting
 
-The bulk import endpoint is limited to 1000 products per request to ensure optimal performance.
+The bulk import endpoint is limited to 1000 products per file to ensure optimal performance.
 
 ## Best Practices
 
-1. **Validate Data**: Ensure all required fields are present and properly formatted before sending.
-2. **Batch Size**: Keep batches under 1000 products to avoid rate limits.
-3. **Error Handling**: Implement retry logic with exponential backoff for rate limit errors.
-4. **Idempotency**: The operation is idempotent - sending the same product data multiple times won't create duplicates.
+1. **File Hosting**: Ensure your JSON file is hosted on a reliable, publicly accessible URL.
+2. **File Size**: Keep your JSON file under 10MB for optimal processing.
+3. **Data Validation**: Validate your JSON structure before uploading to avoid failed imports.
+4. **Error Handling**: Implement retry logic with exponential backoff for rate limit errors.
+5. **Idempotency**: The operation is idempotent - uploading the same file multiple times won't create duplicate products.

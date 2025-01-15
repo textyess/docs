@@ -2,6 +2,7 @@
 title: "Bulk Delete Products"
 api: "DELETE /products/bulk-delete"
 description: "Delete multiple products at once from your catalog"
+authMethod: "key"
 ---
 
 ## Overview
@@ -10,7 +11,7 @@ The bulk delete endpoint allows you to remove multiple products from your catalo
 
 ## Authentication
 
-This endpoint requires a valid JWT token in the `x-auth-token` header:
+This endpoint requires a valid JWT token in the `x-auth-token` header. You can find your token in the [Developers section](https://ai.textyess.com/developers):
 ```bash
 x-auth-token: your_jwt_token
 ```
