@@ -63,61 +63,32 @@ Your JSONL file should contain an array of products with the following structure
   A human-readable message describing the result
 </ResponseField>
 
-<ResponseField name="data" type="object">
-  <ResponseField name="processed" type="number">
-    Number of products successfully processed
-  </ResponseField>
-  <ResponseField name="failed" type="number">
-    Number of products that failed to import
-  </ResponseField>
-</ResponseField>
-
 <ResponseExample>
 ```json 200
 {
   "success": true,
-  "message": "Products imported successfully",
-  "data": {
-    "processed": 2,
-    "failed": 0
-  }
+  "message": "Products update queued successfully"
 }
 ```
 
 ```json 400
 {
-  "code": 400,
-  "message": "Invalid request",
-  "error": {
-    "details": "Invalid file URL"
-  }
+  "message": "You hit rate limit"
+}
+```
+
+```json 400
+{
+  "message": "You have been banned for hitting rate limit too many times, contact support@textyess.com"
 }
 ```
 
 ```json 401
 {
-  "code": 401,
-  "message": "Unauthorized",
-  "error": {
-    "details": "Invalid or missing API token"
-  }
-}
-```
-
-```json 429
-{
-  "code": 429,
-  "message": "Too Many Requests",
-  "error": {
-    "details": "Rate limit exceeded"
-  }
+  "message": "Unauthorized"
 }
 ```
 </ResponseExample>
-
-## Rate Limiting
-
-The bulk import endpoint is limited to 1000 products per file to ensure optimal performance.
 
 ## Best Practices
 
