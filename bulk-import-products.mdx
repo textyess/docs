@@ -96,4 +96,4 @@ Your JSONL file should contain an array of products with the following structure
 2. **File Size**: Keep your JSONL file under 10MB for optimal processing.
 3. **Data Validation**: Validate your JSONL structure before uploading to avoid failed imports.
 4. **Error Handling**: Implement retry logic with exponential backoff for rate limit errors.
-5. **Idempotency**: The operation is idempotent - uploading the same file multiple times won't create duplicate products.
+5. **Idempotency**: The operation is NOT idempotent - uploading the same file multiple times will create duplicate products.
