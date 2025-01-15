@@ -68,6 +68,7 @@
      {
       "group": "Products API",
       "pages": [
+        "pippo",
         "bulk-import-products",
         "bulk-update-products",
         "bulk-delete-products"
