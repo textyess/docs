@@ -10,9 +10,9 @@ The bulk delete endpoint allows you to remove multiple products from your catalo
 
 ## Authentication
 
-This endpoint requires a valid JWT token in the Authorization header:
+This endpoint requires a valid JWT token in the `x-auth-token` header:
 ```bash
-Authorization: Bearer your_jwt_token
+x-auth-token: your_jwt_token
 ```
 
 ## Query Parameters
@@ -25,4 +25,66 @@ Authorization: Bearer your_jwt_token
 >
   Comma-separated list of product IDs to delete. For example: `ids=prod_12345,prod_67890,prod_11111`
 </ParamField>
+
+## Response
+
+<ResponseField name="success" type="boolean">
+  Indicates if the deletion was successful
+</ResponseField>
+
+<ResponseField name="message" type="string">
+  A human-readable message describing the result
+</ResponseField>
+
+<ResponseField name="data" type="object">
+  <ResponseField name="processed" type="number">
+    Number of products successfully deleted
+  </ResponseField>
+  <ResponseField name="failed" type="number">
+    Number of products that failed to delete
+  </ResponseField>
+</ResponseField>
+
+<ResponseExample>
+```json 200
+{
+  "success": true,
+  "message": "Products deleted successfully",
+  "data": {
+    "processed": 2,
+    "failed": 0
+  }
+}
+```
+
+```json 400
+{
+  "code": 400,
+  "message": "Invalid request",
+  "error": {
+    "details": "Invalid product IDs format"
+  }
+}
+```
+
+```json 401
+{
+  "code": 401,
+  "message": "Unauthorized",
+  "error": {
+    "details": "Invalid or missing JWT token"
+  }
+}
+```
+
+```json 429
+{
+  "code": 429,
+  "message": "Too Many Requests",
+  "error": {
+    "details": "Rate limit exceeded"
+  }
+}
+```
+</ResponseExample>
  
