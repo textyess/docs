@@ -103,54 +103,24 @@ x-auth-token: your_jwt_token
   A human-readable message describing the result
 </ResponseField>
 
-<ResponseField name="data" type="object">
-  <ResponseField name="processed" type="number">
-    Number of products successfully updated
-  </ResponseField>
-  <ResponseField name="failed" type="number">
-    Number of products that failed to update
-  </ResponseField>
-</ResponseField>
 
 <ResponseExample>
 ```json 200
 {
   "success": true,
-  "message": "Products updated successfully",
-  "data": {
-    "processed": 2,
-    "failed": 0
-  }
+  "message": "Products update queued successfully"
 }
 ```
 
 ```json 400
 {
-  "code": 400,
-  "message": "Invalid request",
-  "error": {
-    "details": "Invalid product structure"
-  }
+  "message": "You hit rate limit"
 }
 ```
 
 ```json 401
 {
-  "code": 401,
-  "message": "Unauthorized",
-  "error": {
-    "details": "Invalid or missing JWT token"
-  }
-}
-```
-
-```json 429
-{
-  "code": 429,
-  "message": "Too Many Requests",
-  "error": {
-    "details": "Rate limit exceeded"
-  }
+  "message": "Unauthorized"
 }
 ```
 </ResponseExample>
