@@ -7,7 +7,7 @@ authMethod: "key"
 
 ## Overview
 
-The bulk import endpoint allows you to add multiple products to your catalog by providing a URL to a JSON file containing your products data. This is useful for initial catalog setup or synchronizing products from your e-commerce platform.
+The bulk import endpoint allows you to add multiple products to your catalog by providing a URL to a JSONL file containing your products data. This is used only initial catalog.
 
 ## Authentication
 
@@ -24,12 +24,12 @@ x-auth-token: your_jwt_token
   required
   initialValue="https://example.com/products.json"
 >
-  A valid URL pointing to a JSON file containing your products data. The file should be publicly accessible.
+  A valid URL pointing to a JSONL file containing your products data. The file should be publicly accessible.
 </ParamField>
 
-### Expected JSON File Structure
+### Expected JSONL File Structure
 
-Your JSON file should contain an array of products with the following structure:
+Your JSONL file should contain an array of products with the following structure:
 
 ```json
 [
@@ -121,8 +121,8 @@ The bulk import endpoint is limited to 1000 products per file to ensure optimal 
 
 ## Best Practices
 
-1. **File Hosting**: Ensure your JSON file is hosted on a reliable, publicly accessible URL.
-2. **File Size**: Keep your JSON file under 10MB for optimal processing.
-3. **Data Validation**: Validate your JSON structure before uploading to avoid failed imports.
+1. **File Hosting**: Ensure your JSONL file is hosted on a reliable, publicly accessible URL.
+2. **File Size**: Keep your JSONL file under 10MB for optimal processing.
+3. **Data Validation**: Validate your JSONL structure before uploading to avoid failed imports.
 4. **Error Handling**: Implement retry logic with exponential backoff for rate limit errors.
 5. **Idempotency**: The operation is idempotent - uploading the same file multiple times won't create duplicate products.
