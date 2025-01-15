@@ -66,13 +66,13 @@
       ]
     },
      {
-          "group": "Products API",
-          "pages": [
-            "bulk-import-products",
-            "bulk-update-products",
-            "bulk-delete-products"
-          ]
-        }
+      "group": "Products API",
+      "pages": [
+        "bulk-import-products",
+        "bulk-update-products",
+        "bulk-delete-products"
+      ]
+    }
   ],
   "footerSocials": {
     "instagram": "https://www.instagram.com/text_yess",
