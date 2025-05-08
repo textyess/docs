@@ -38,7 +38,6 @@
       "pages": [
         "introduction",
         "whatsapp-integration",
-        "whatsapp-business-accounts",
         "widget-installation-shopify",
         "widget-installation-woocommerce",
         "connect-prestashop",
@@ -51,6 +50,7 @@
       "pages": [
         "improve-ai",
         "personalize-whatsapp",
+        "whatsapp-business-accounts",
         "manage-conversations",
         "product-widget-install",
         "textyess-on-smartphones",
