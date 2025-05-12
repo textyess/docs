@@ -1,6 +1,6 @@
 ---
 title: "Get Product"
-api: "GET /products/:id"
+api: "GET /products/{id}"
 description: "Retrieve a specific product from your catalog by its ID"
 authMethod: "key"
 ---
@@ -64,7 +64,6 @@ The response includes the following fields:
 </ResponseField>
 
 <ResponseExample>
-
 ```json 200
 {
   "product_id": "prod_12345",
@@ -91,3 +90,4 @@ The response includes the following fields:
   "message": "Product not found"
 }
 ```
+</ResponseExample>

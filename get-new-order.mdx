@@ -1,6 +1,6 @@
 ---
 title: "Get Order"
-api: "GET /orders/:id"
+api: "GET /orders/{id}"
 description: "Retrieve a specific order from your store by its ID"
 authMethod: "key"
 ---
@@ -8,7 +8,6 @@ authMethod: "key"
 ## Overview
 
 The get order endpoint allows you to retrieve detailed information about a specific order in your store using its unique identifier. This endpoint returns the most recent order matching the provided ID.
-
 
 ## Authentication
 
@@ -60,8 +59,11 @@ The response includes the following fields:
 }
 ```
 
+
 ```json 404
 {
   "message": "Order not found"
 }
 ```
+
+</ResponseExample>
