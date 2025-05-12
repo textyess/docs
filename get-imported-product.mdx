@@ -1,0 +1,93 @@
+---
+title: "Get Product"
+api: "GET /products/:id"
+description: "Retrieve a specific product from your catalog by its ID"
+authMethod: "key"
+---
+
+## Overview
+
+The get product endpoint allows you to retrieve detailed information about a specific product in your catalog using its unique identifier.
+
+## Authentication
+
+This endpoint requires a valid JWT token in the `x-auth-token` header. You can find your token in the [Developers section](https://ai.textyess.com/developers):
+
+```bash
+x-auth-token: your_jwt_token
+```
+
+## Path Parameters
+
+<ParamField path="id" type="string" required>
+  The unique identifier of the product you want to retrieve
+</ParamField>
+
+## Response
+
+The response includes the following fields:
+
+<ResponseField name="product_id" type="string">
+  The unique identifier of the product
+</ResponseField>
+
+<ResponseField name="product_url" type="string">
+  The URL where the product can be viewed
+</ResponseField>
+
+<ResponseField name="product_image" type="string">
+  The URL of the product's main image
+</ResponseField>
+
+<ResponseField name="title" type="string">
+  The product's title
+</ResponseField>
+
+<ResponseField name="description" type="string">
+  The product's description
+</ResponseField>
+
+<ResponseField name="handle" type="string">
+  The product's handle/slug
+</ResponseField>
+
+<ResponseField name="variants" type="array">
+  Array of product variants
+</ResponseField>
+
+<ResponseField name="collections" type="array">
+  Array of collections the product belongs to
+</ResponseField>
+
+<ResponseField name="available" type="boolean">
+  Indicates if the product is currently available
+</ResponseField>
+
+<ResponseExample>
+
+```json 200
+{
+  "product_id": "prod_12345",
+  "product_url": "https://yourstore.com/products/sample-product",
+  "product_image": "https://example.com/image.jpg",
+  "title": "Sample Product",
+  "description": "A detailed product description",
+  "handle": "sample-product",
+  "variants": [
+    {
+      "id": "var_12345",
+      "title": "Default Variant",
+      "price": "29.99",
+      "inventory_quantity": 100
+    }
+  ],
+  "collections": ["New Arrivals", "Featured"],
+  "available": true
+}
+```
+
+```json 404
+{
+  "message": "Product not found"
+}
+```

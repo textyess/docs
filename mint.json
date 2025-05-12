@@ -58,6 +58,7 @@
       "group": "Webhooks",
       "pages": [
         "new-order-webhook",
+        "get-new-order",
         "flow-webhook"
       ]
     },
@@ -66,7 +67,8 @@
       "pages": [
         "bulk-import-products",
         "bulk-update-products",
-        "bulk-delete-products"
+        "bulk-delete-products",
+        "get-imported-product"
       ]
     }
   ],

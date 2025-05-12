@@ -1,0 +1,66 @@
+---
+title: "Get Order"
+api: "GET /orders/:id"
+description: "Retrieve a specific order from your store by its ID"
+authMethod: "key"
+---
+
+## Overview
+
+The get order endpoint allows you to retrieve detailed information about a specific order in your store using its unique identifier. This endpoint returns the most recent order matching the provided ID.
+
+## Authentication
+
+This endpoint requires a valid JWT token in the `x-auth-token` header. You can find your token in the [Developers section](https://ai.textyess.com/developers):
+
+```bash
+x-auth-token: your_jwt_token
+```
+
+## Path Parameters
+
+<ParamField path="id" type="string" required>
+  The unique identifier (cms_id) of the order you want to retrieve
+</ParamField>
+
+## Response
+
+The response includes the following fields:
+
+<ResponseField name="id" type="string">
+  The unique identifier (cms_id) of the order
+</ResponseField>
+
+<ResponseField name="number_of_items" type="number">
+  The total number of items in the order
+</ResponseField>
+
+<ResponseField name="total_price" type="string">
+  The total price of the order in decimal format (e.g., "99.99")
+</ResponseField>
+
+<ResponseField name="paid" type="boolean">
+  Indicates if the order has been paid
+</ResponseField>
+
+<ResponseField name="created_at" type="string">
+  The timestamp when the order was created
+</ResponseField>
+
+<ResponseExample>
+
+```json 200
+{
+  "id": "order_12345",
+  "number_of_items": 3,
+  "total_price": "99.99",
+  "paid": true,
+  "created_at": "2024-03-20T10:30:00Z"
+}
+```
+
+```json 404
+{
+  "message": "Order not found"
+}
+```
