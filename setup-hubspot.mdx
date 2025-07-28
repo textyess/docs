@@ -1,0 +1,37 @@
+---
+title: "Setup Hubspot"
+description: "Learn how to integrate TextYess and Hubspot."
+---
+
+## Navigate to the installation page
+
+The first step is to install your TextYess account into Hubspot at the following [page](https://ai.textyess.com/integrations/hubspot). You'll click on "Install" and will be redirected to Hubspot to authorize the integration.
+
+<Frame>
+  ![](/integration_hubspot.jpg)
+</Frame>
+
+## This will allow us to
+
+<Steps>
+  <Step title="Import Hubspot Static Lists to TextYess">
+    From the source drop-down menu, select Hubspot Static List, then choose the list you want to import. Enter a name for your contact group and click "Create". The group will be automatically created in TextYess and populated with the selected contacts.
+
+    <Frame>
+      ![](/hubspot_list.png)
+    </Frame>
+  </Step>
+  <Step title="Create webhooks to pass information from Hubspot workflows to TextYess automations">
+    In TextYess, go to Automations and click on Create. Set the trigger to Webhook, and you will see a URL in the trigger settings that you need to copy.
+
+    <Frame>
+      ![](/webhook_textyess.png)
+    </Frame>
+    Next, switch to Hubspot and go to workflows, where you can add the webhook either to an existing flow or create a new one. Paste the destination URL you copied from TextYess into URL webhook in Hubspot, and then fill in the keys and properties as shown in the image below.
+
+    <Frame>
+      ![](/hubspot_webhook.png)
+    </Frame>
+    With this setup, you are now passing data from Hubspot to TextYess, which allows you to send WhatsApp messages directly to these profiles.
+  </Step>
+</Steps>
