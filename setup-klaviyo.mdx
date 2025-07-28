@@ -1,0 +1,56 @@
+---
+title: "Setup Klaviyo"
+description: "Learn how to integrate TextYess and Klaviyo."
+---
+
+## Navigate to the configuration page
+
+The first step is to configure your Klaviyo account into textyess at the following [page](https://ai.textyess.com/integrations/klaviyo).
+
+<Frame>
+  ![Integrationklaviyo Jpe](/images/integrationklaviyo.jpeg)
+</Frame>
+
+### Where to find the API KEY?
+
+Remember that the API key is located in the "Settings" section of your Klaviyo account, you can navigate to it through [this link](https://www.klaviyo.com/settings/account/api-keys). In order to integrate the account you will need:
+
+- a Private API Key with full access
+- the Public API Key and Private API Key
+
+You can now enter the API Keys in the configuation page and then click on "Connect Klaviyo"
+
+## This will allow us to
+
+<Steps>
+  <Step title="Import segments and lists from Klaviyo to TextYess">
+    From the source drop-down menu, select Klaviyo List or Segment, then choose the list or segment you want to import. Enter a name for your contact group and click "Create". The group will be automatically created in TextYess and populated with the selected contacts.
+
+    <Frame>
+      ![](/Screenshot2025-07-25alle03.10.31.png)
+    </Frame>
+  </Step>
+  <Step title="Create webhooks to pass information from Klaviyo flows to TextYess automations">
+    In TextYess, go to Automations and click on Create. Set the trigger to Webhook, and you will see a URL in the trigger settings that you need to copy.
+
+    <Frame>
+      ![](/Screenshot2025-07-27alle00.42.01.png)
+    </Frame>
+    Next, switch to Klaviyo and go to Flows, where you can add the webhook either to an existing flow or create a new one. Paste the destination URL you copied from TextYess into the webhook settings in Klaviyo, and then insert the following JSON body:
+
+    ```
+    {
+      "first_name": "{{ person.first_name }}",
+      "phone_number": "{{ person.phone_number }}",
+      "country_code": "IT",
+      "email": "{{ person.email }}"
+    }
+    
+    ```
+
+    <Frame>
+      ![](/Screenshot2025-07-27alle00.41.36.png)
+    </Frame>
+    With this setup, you are now passing data from Klaviyo to TextYess, which allows you to send WhatsApp messages directly to these profiles.
+  </Step>
+</Steps>
