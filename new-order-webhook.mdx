@@ -1,6 +1,6 @@
 ---
 title: "Webhook for new orders"
-api: 'POST /webhooks/new-order/{userId}'
+api: 'POST /webhooks/new-order/{organizationId}'
 description: "Learn how to send new order data through webhooks"
 authMethod: "none"
 ---
@@ -11,8 +11,8 @@ The webhook for new orders enables TextYess to receive and manage data from newl
 
 ### Path Parameters
 
-<ParamField path="userId" type="string" required initialValue="1234456">
-  The id of the user. You can get your user id from https://ai.textyess.com/developers
+<ParamField path="organizationid" type="string" required initialValue="1234456">
+  The id of the organization You can get your organization id from https://ai.textyess.com/developers
 </ParamField>
 
 ### Body Parameters
