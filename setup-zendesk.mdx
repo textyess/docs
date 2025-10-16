@@ -1,43 +1,43 @@
 ---
-title: Setup Zendesk
+title: "Setup Zendesk"
 description: "Learn how to setup Textyess into your Zendesk account!"
 ---
 
 ## Navigate to the configuration page
 
 The first step is to configure your zendesk into textyess at the following [page](https://ai.textyess.com/integrations/zendesk).
-    
-    <Frame>
-        <img src="/images/zendesk_textyess_setup.png" />
-    </Frame>
 
- ### Where to find the API KEY (API token) ?
-Remember that the API key is located in the "Admin" section of your Zendesk account.
-Also remember that you need to activate the Token access before creating the token
+<Frame>
+  ![](/images/zendesk_textyess_setup.png)
+</Frame>
 
-    <Frame>
-        <img src="/images/api_key.png" />
-    </Frame>
+### Where to find the API KEY (API token) ?
+
+Remember that the API key is located in the "Admin" section of your Zendesk account. Also remember that you need to activate the Token access before creating the token
+
+<Frame>
+  ![](/images/api_key.png)
+</Frame>
 
 ## Zendesk configuration
 
 <Steps>
   <Step title="Create a new Webhook">
-    Copy the webhook url from the TextYess configuration page and paste it into the "URL" field of the webhook configuration page.
-    At the first page of the webhook creation select "Trigger or Automation"
+    Copy the webhook url from the TextYess configuration page and paste it into the "URL" field of the webhook configuration page. At the first page of the webhook creation select "Trigger or Automation"
+
     <Frame>
-        <img src="/images/zendesk_webhook.png" />
+      ![](/images/zendesk_webhook.png)
     </Frame>
   </Step>
   <Step title="Add a new Trigger">
-     The new trigger to create must look like the following images:
-      <Frame>
-          <img src="/images/zendesk_trigger_1.png" />
-      </Frame>
+    The new trigger to create must look like the following images:
 
-      <Frame>
-          <img src="/images/zendesk_trigger_2.png" />
-      </Frame>
+    <Frame>
+      ![](/images/zendesk_trigger_1.png)
+    </Frame>
+    <Frame>
+      ![](/images/zendesk_trigger_2.png)
+    </Frame>
   </Step>
 </Steps>
 
@@ -48,18 +48,12 @@ Also remember that you need to activate the Token access before creating the tok
     The app will automatically create a view named "TextYess" where all new conversations with the AI agent will be visible
   </Step>
   <Step title="Handle custom support conversations">
-     The app then automatically will send all new replies / comments created from your Gorgias account to TextYess.
-     Remember that sending messages from Zendesk's ticket page will stop the AI to reply to the customer!
+    The app then automatically will send all new replies / comments created from your Zendesk account to TextYess. Remember that sending messages from Zendesk's ticket page will stop the AI to reply to the customer!
   </Step>
 </Steps>
 
-
 ## On every new WhatsApp conversation:
-  
-  The customer will be created with a zendesk+__phonenumber__@textyess.com email and attached his phone number.
-  The app then will create a ticket with status: **"closed"**, , this status means that the AI will continue to generate responses
-  until the AI replies to the customer the he needs to contact the customer support, once this happens, the ticket status will be: **"open"**.
 
-  If a customer support member wants to join the conversation and sends a message to the customer, the AI will stop generating responses
-  and the conversation will exclusively be handled by the support member.
-    
+The customer will be created with a [zendesk+\__phonenumber_\_@textyess.com](mailto:zendesk+__phonenumber__@textyess.com) email and attached his phone number. The app then will create a ticket with status: **"closed"**, this status means that the AI will continue to generate responses until the AI replies to the customer the he needs to contact the customer support, once this happens, the ticket status will be: **"open"**.
+
+If a customer support member wants to join the conversation and sends a message to the customer, the AI will stop generating responses and the conversation will exclusively be handled by the support member.
