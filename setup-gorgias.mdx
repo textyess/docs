@@ -1,5 +1,5 @@
 ---
-title: Setup Gorgias
+title: "Setup Gorgias"
 description: "Learn how to setup Textyess into your Gorgias account!"
 ---
 
@@ -14,17 +14,16 @@ The first step is to [install our Gorgias App](https://ai.textyess.com/integrati
     The app will automatically create a view named "TextYess" where all new conversations with the AI agent will be visible
   </Step>
   <Step title="Create a new HTTP integration">
-     The app will automatically create a new HTTP integration where all new ticket messages created from your Gorgias account will be sent to TextYess.
-     Remember that sending messages from Gorgias's ticket page will stop the AI to reply to the customer!
+    The app will automatically create a new HTTP integration where all new ticket messages created from your Gorgias account will be sent to TextYess. Remember that sending messages from Gorgias's ticket page will stop the AI to reply to the customer!
   </Step>
 </Steps>
 
-
 ## On every new WhatsApp conversation:
-  
-  The customer will be created with a @textyess.com email and attached his phone number.
-  The app then will create a ticket with status: **"closed"**, this status means that the AI will continue to generate responses
-  until the AI replies to the customer the he needs to contact the customer support, once this happens, the ticket status will be: **"open"**.
 
-  If a customer support member wants to join the conversation and sends a message to the customer, the AI will stop generating responses
-  and the conversation will exclusively be handled by the support member.
+The customer will be created with a `@textyess.com` email and their phone number attached.\
+The app will then **create a new ticket in Gorgias with status: “open”**.
+
+While the AI agent manages the conversation, it will automatically send replies to the customer.\
+If at any point the AI determines that the customer needs to contact your support team, the ticket will stay open and can be handled directly by your agents in Gorgias.
+
+If a support team member sends a message to the customer from Gorgias, the AI will stop responding and the conversation will be managed exclusively by the support team.
