@@ -3,10 +3,10 @@ title: "Setup Zendesk"
 description: "Learn how to setup Textyess into your Zendesk account!"
 ---
 
-## Navigate to the configuration page
+### Navigate to the configuration page
 
 The first step is to connect your Zendesk account to TextYess.\
-Open the **Zendesk Integration** page inside TextYess by clicking [here](https://ai.textyess.com/integrations/zendesk) or navigating to https://ai.textyess.com/integrations/zendesk.
+Open the **Zendesk Integration** page inside TextYess by navigating to https://ai.textyess.com/integrations/zendesk.
 
 <Frame>
   ![](/images/zendesk_textyess_setup.png)
@@ -23,38 +23,11 @@ Open the **Zendesk Integration** page inside TextYess by clicking [here](https:/
 7. Go back to **TextYess → Integrations → Zendesk**.
 8. Paste your **Zendesk domain**, **admin email**, and **API token**, then click **Setup Zendesk**.
 
-✅ TextYess will now automatically create:
-
-- The **Webhook** and **Trigger** needed for message sync
-- A **TextYess View** inside Zendesk showing all WhatsApp conversations
-
 <Frame>
   ![](/images/api_key.png)
 </Frame>
 
-## Zendesk configuration
-
-<Steps>
-  <Step title="Create a new Webhook">
-    Copy the webhook url from the TextYess configuration page and paste it into the "URL" field of the webhook configuration page. At the first page of the webhook creation select "Trigger or Automation"
-
-    <Frame>
-      ![](/images/zendesk_webhook.png)
-    </Frame>
-  </Step>
-  <Step title="Add a new Trigger">
-    The new trigger to create must look like the following images:
-
-    <Frame>
-      ![](/images/zendesk_trigger_1.png)
-    </Frame>
-    <Frame>
-      ![](/images/zendesk_trigger_2.png)
-    </Frame>
-  </Step>
-</Steps>
-
-## This will allow us to:
+### This will allow us to:
 
 <Steps>
   <Step title="Create a TextYess view">
@@ -67,6 +40,12 @@ Open the **Zendesk Integration** page inside TextYess by clicking [here](https:/
 
 ## On every new WhatsApp conversation:
 
-The customer will be created with a [_zendesk+\_phonenumber\_@textyess.com_](mailto:zendesk+__phonenumber__@textyess.com) email and attached his phone number. The app then will create a ticket with status: **"closed"**, this status means that the AI will continue to generate responses until the AI replies to the customer the he needs to contact the customer support, once this happens, the ticket status will be: **"open"**.
-
-If a customer support member wants to join the conversation and sends a message to the customer, the AI will stop generating responses and the conversation will exclusively be handled by the support member.
+1. TextYess automatically creates a **customer in Zendesk** with:
+   - Email: `zendesk_<phonenumber>@textyess.com`
+   - Their phone number attached to their profile
+2. A **ticket is created with status: “solved.”**\
+   This indicates the AI is actively managing the conversation.
+3. If the **customer replies,** Zendesk automatically reopens the ticket as **“open.”**\
+   The AI detects the new message and sends a response.
+4. After the AI responds, the ticket is automatically updated back to **“solved.”**
+5. If a **human agent** sends a message to the customer from Zendesk, the AI immediately stops replying, and the ticket remains **open** for manual handling.
