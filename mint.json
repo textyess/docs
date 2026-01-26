@@ -35,6 +35,8 @@
         "whatsapp-integration",
         "widget-installation-shopify",
         "widget-installation-woocommerce",
+        "onsite-widget-installation-shopify",
+        "onsite-widget-installation-woocommerce",
         "analytics"
       ]
     },

@@ -1,0 +1,162 @@
+---
+title: "[WOOCOMMERCE] Onsite Widget installation"
+description: "Install the TextYess AI Shopping Assistant directly on your WooCommerce website. Unlike the WhatsApp bubble, this onsite widget provides a full-featured chat experience with product recommendations and more."
+---
+
+<Note>
+Looking for the WhatsApp Bubble instead? Check out the [WhatsApp Bubble installation guide](/widget-installation-woocommerce).
+</Note>
+
+The Onsite Widget is a powerful AI Shopping Assistant that runs directly on your website. It differs from the WhatsApp bubble by providing:
+
+- **Full chat experience** with a centered modal dialog
+- **Product carousel** with variant selection
+- **Persistent conversations** across page navigation
+- **Customizable appearance** with colors, banners, and positioning
+
+<Steps>
+  <Step title="Customize your widget appearance">
+    Click on the "Growth tool kit" section of the menu. From there select the Onsite Widget integration block and personalize your widget.
+
+    You can customize:
+    - **Colors**: Background, bubble, and icon colors
+    - **Text**: Dialog title, welcome message, and bubble text
+    - **Position**: Bottom-right corner or right-center of the screen
+    - **Banner image**: Display a promotional image at the top of the chat
+    - **Popular questions**: Suggested questions for customers to ask
+  </Step>
+
+  <Step title="Get the code snippet">
+    From there you will find the code snippet to insert into your WooCommerce theme. <br />
+    The code will look something like this:
+
+```html
+<script
+  type="module"
+  src="https://cdn.textyess.com/v2/textyess-widget-components/textyess-widget-components.esm.js"
+  defer
+></script>
+<textyess-ai-widget
+  organization_id="your_organization_id"
+  language="en"
+/>
+```
+
+<Note>
+The onsite widget uses the `<textyess-ai-widget>` tag, which is different from the WhatsApp bubble widget (`<textyess-bubble-widget>`).
+</Note>
+
+  </Step>
+
+  <Step title="Go to Appearance > Editor">
+    Once inside your store click on "Appearance" from the menu on the right. <br/>
+
+    From there click on "Editor"
+
+     <Frame>
+        <img src="/images/appearance_menu.png" />
+    </Frame>
+
+  </Step>
+
+  <Step title="Open the Patterns section">
+    Once opened the editor, you should see something like this. You will need to click the "Patterns"  <br/>
+
+     <Frame>
+        <img src="/images/theme-editor-woocommerce.png" />
+    </Frame>
+
+  </Step>
+
+  <Step title="Open the Header pattern">
+   Several patterns will be shown. You need to scroll down and select the one named "Header"<br />
+   Once again, more than one header pattern may shown. Click the one in which you want to show the widget.
+
+    <Tip>
+      Before proceeding we strongly recommend that you duplicate the pattern that
+      you want to edit. To do this, click on the three dots, then click on
+      "Duplicate".
+    </Tip>
+
+     <Frame>
+        <img src="/images/header-section-woocommerce.png" />
+    </Frame>
+
+  </Step>
+
+  <Step title="Edit and save the code">
+    Go to the bottom of the file and paste the code from step 2 right before the last `<!-- /wp:group -->` <br/>
+    Once you have edited the code, click save in the upper right corner.
+
+     <Frame>
+        <img src="/images/add-bubble-widget-woocommerce.png" />
+    </Frame>
+
+    <Check>Congratulations, we are live!</Check>
+
+  </Step>
+</Steps>
+
+## Customization Options
+
+You can customize the onsite widget by adding attributes to the `<textyess-ai-widget>` tag:
+
+### Colors
+
+| Attribute | Description | Default |
+|-----------|-------------|---------|
+| `background_color` | Chat window background color | `#7f1d1d` |
+| `bubble_color` | Floating bubble color | `#7f1d1d` |
+| `bubble_content_color` | Text/icon color inside bubble | `#ffffff` |
+| `icon_color` | Icon color in UI elements | `#ffffff` |
+
+### Position & Appearance
+
+| Attribute | Description | Default |
+|-----------|-------------|---------|
+| `bubble_position` | Position of the bubble: `bottom-right` or `right-center` | `right-center` |
+| `image_banner_url` | URL of banner image shown at top of chat | - |
+| `image_fit` | How banner image scales: `contain` or `cover` | `cover` |
+
+### Text & Content
+
+| Attribute | Description | Default |
+|-----------|-------------|---------|
+| `dialog_title` | Title shown in the chat window header | - |
+| `welcome_message` | Initial greeting message | - |
+| `bubble_text` | Text on the floating action bubble | - |
+| `badge_text` | Badge text (e.g., "NEW") | - |
+| `popular_questions` | Suggested questions (comma-separated) | - |
+
+### Language
+
+| Attribute | Description | Default |
+|-----------|-------------|---------|
+| `language` | Language: `en` (English) or `it` (Italian) | `it` |
+
+### E-commerce
+
+| Attribute | Description | Default |
+|-----------|-------------|---------|
+| `show_add_to_cart` | Show "Add to Cart" buttons for products | `true` |
+
+### Example with customization
+
+```html
+<script
+  type="module"
+  src="https://cdn.textyess.com/v2/textyess-widget-components/textyess-widget-components.esm.js"
+  defer
+></script>
+<textyess-ai-widget
+  organization_id="your_organization_id"
+  language="en"
+  dialog_title="Shopping Assistant"
+  welcome_message="Hi! How can I help you today?"
+  bubble_text="Need help?"
+  background_color="#1e40af"
+  bubble_color="#1e40af"
+  bubble_position="bottom-right"
+  show_add_to_cart="true"
+/>
+```
