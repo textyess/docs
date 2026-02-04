@@ -1,0 +1,122 @@
+---
+title: "List Orders (Analytics)"
+api: "GET /analytics/orders"
+description: "Get a paginated list of orders with optional type filter"
+authMethod: "key"
+---
+
+## Overview
+
+The list orders endpoint returns a paginated list of TextYess-attributed orders. You can filter by date range and optionally by type (e.g. WhatsApp AI assistant, onsite AI assistant, or all). Results can be sorted by various keys.
+
+## Authentication
+
+This endpoint requires a valid JWT token in the `x-auth-token` header. You can find your token in the [Developers section](https://ai.textyess.com/developers):
+
+```bash
+x-auth-token: your_jwt_token
+```
+
+## Query Parameters
+
+<ParamField
+  query="from"
+  type="string"
+  initialValue="2024-01-01T00:00:00.000Z"
+>
+  Start date for filtering orders (ISO 8601).
+</ParamField>
+
+<ParamField
+  query="to"
+  type="string"
+  initialValue="2024-03-20T23:59:59.999Z"
+>
+  End date for filtering orders (ISO 8601).
+</ParamField>
+
+<ParamField
+  query="sortDirection"
+  type="string"
+  initialValue="-1"
+>
+  Sort direction: `1` for ascending, `-1` for descending. Defaults to `-1`.
+</ParamField>
+
+<ParamField
+  query="sortKey"
+  type="string"
+  initialValue="createdAt"
+>
+  Field to sort by: `createdAt`, `name`, `title`, `total_messages`, `cost`, `revenue`, `orders_number`, `campaign_conversion_rate`, `average_cart`, `roas`.
+</ParamField>
+
+<ParamField
+  query="type"
+  type="string"
+>
+  Filter by order source: `whatsapp-ai-assistant` (WhatsApp AI), `onsite-ai-assistant` (onsite widget), or omit for all attributed orders.
+</ParamField>
+
+<ParamField
+  query="page"
+  type="string"
+  required
+  initialValue="0"
+>
+  Page number (0-based). Use 0 for the first page.
+</ParamField>
+
+<ParamField
+  query="perPage"
+  type="string"
+  required
+  initialValue="10"
+>
+  Number of items per page. Must be at least 1.
+</ParamField>
+
+## Response
+
+The response has two top-level keys: `data` (array of order objects) and `pagination`. Each order in `data` includes order fields (e.g. `cms_id`, `order_number`, `total`, `items_number`, `paid`, `createdAt`) and a populated `conversation` when available.
+
+<ResponseField name="data" type="array">
+  Array of order documents (TextYess-attributed orders).
+</ResponseField>
+
+<ResponseField name="pagination" type="object">
+  Pagination metadata: `total` (total count), `perPage`, `page`.
+</ResponseField>
+
+<ResponseExample>
+```json 200
+{
+  "data": [
+    {
+      "_id": "507f1f77bcf86cd799439020",
+      "cms_id": "ord_12345",
+      "order_number": "1001",
+      "total": 89.99,
+      "items_number": 2,
+      "paid": true,
+      "createdAt": "2024-01-15T14:30:00.000Z",
+      "conversation": {
+        "_id": "507f1f77bcf86cd799439021",
+        "phone": "+393331234567"
+      }
+    }
+  ],
+  "pagination": {
+    "total": 450,
+    "perPage": 10,
+    "page": 0
+  }
+}
+```
+
+```json 401
+{
+  "message": "Unauthorized"
+}
+```
+</ResponseExample>

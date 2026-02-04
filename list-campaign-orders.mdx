@@ -1,0 +1,132 @@
+---
+title: "List Campaign Orders"
+api: "GET /analytics/campaigns/{campaignId}/orders"
+description: "Get orders attributed to a specific campaign"
+authMethod: "key"
+---
+
+## Overview
+
+The list campaign orders endpoint returns a paginated list of orders attributed to a specific campaign. Use this to see which orders were driven by a given campaign, with optional date range and sorting.
+
+## Authentication
+
+This endpoint requires a valid JWT token in the `x-auth-token` header. You can find your token in the [Developers section](https://ai.textyess.com/developers):
+
+```bash
+x-auth-token: your_jwt_token
+```
+
+## Path Parameters
+
+<ParamField path="campaignId" type="string" required>
+  The unique identifier of the campaign (MongoDB ObjectId). Only orders attributed to this campaign are returned.
+</ParamField>
+
+## Query Parameters
+
+<ParamField
+  query="from"
+  type="string"
+  initialValue="2024-01-01T00:00:00.000Z"
+>
+  Start date for filtering orders (ISO 8601).
+</ParamField>
+
+<ParamField
+  query="to"
+  type="string"
+  initialValue="2024-03-20T23:59:59.999Z"
+>
+  End date for filtering orders (ISO 8601).
+</ParamField>
+
+<ParamField
+  query="sortDirection"
+  type="string"
+  initialValue="-1"
+>
+  Sort direction: `1` for ascending, `-1` for descending. Defaults to `-1`.
+</ParamField>
+
+<ParamField
+  query="sortKey"
+  type="string"
+  initialValue="createdAt"
+>
+  Field to sort by: `createdAt`, `name`, `title`, `total_messages`, `cost`, `revenue`, `orders_number`, `campaign_conversion_rate`, `average_cart`, `roas`.
+</ParamField>
+
+<ParamField
+  query="page"
+  type="string"
+  required
+  initialValue="0"
+>
+  Page number (0-based). Use 0 for the first page.
+</ParamField>
+
+<ParamField
+  query="perPage"
+  type="string"
+  required
+  initialValue="10"
+>
+  Number of items per page. Must be at least 1.
+</ParamField>
+
+## Response
+
+The response has two top-level keys: `data` (array of order objects) and `pagination`. Each order in `data` includes order fields (e.g. `cms_id`, `order_number`, `total`, `items_number`, `paid`, `createdAt`) and a populated `conversation` when available.
+
+<ResponseField name="data" type="array">
+  Array of order documents (TextYess-attributed orders for this campaign).
+</ResponseField>
+
+<ResponseField name="pagination" type="object">
+  Pagination metadata: `total` (total count), `perPage`, `page`.
+</ResponseField>
+
+<ResponseExample>
+```json 200
+{
+  "data": [
+    {
+      "_id": "507f1f77bcf86cd799439020",
+      "cms_id": "ord_12345",
+      "order_number": "1001",
+      "total": 89.99,
+      "items_number": 2,
+      "paid": true,
+      "createdAt": "2024-01-15T14:30:00.000Z",
+      "conversation": {
+        "_id": "507f1f77bcf86cd799439021",
+        "phone": "+393331234567"
+      }
+    }
+  ],
+  "pagination": {
+    "total": 120,
+    "perPage": 10,
+    "page": 0
+  }
+}
+```
+
+```json 200
+{
+  "data": [],
+  "pagination": {
+    "total": 0,
+    "perPage": 10,
+    "page": 0
+  }
+}
+```
+
+```json 401
+{
+  "message": "Unauthorized"
+}
+```
+</ResponseExample>

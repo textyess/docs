@@ -1,0 +1,99 @@
+---
+title: "Get Campaign (Analytics)"
+api: "GET /analytics/campaigns/{campaignId}"
+description: "Get analytics metrics for a single campaign"
+authMethod: "key"
+---
+
+## Overview
+
+The get campaign endpoint returns aggregated analytics (messages, cost, revenue, orders, conversion rate, ROAS) for a single campaign by ID. If the campaign ID is invalid or no message events exist for it, the API returns `null`.
+
+## Authentication
+
+This endpoint requires a valid JWT token in the `x-auth-token` header. You can find your token in the [Developers section](https://ai.textyess.com/developers):
+
+```bash
+x-auth-token: your_jwt_token
+```
+
+## Path Parameters
+
+<ParamField path="campaignId" type="string" required>
+  The unique identifier of the campaign (MongoDB ObjectId). Supports both classic campaigns and outbound automations/flows.
+</ParamField>
+
+## Response
+
+The response is a single campaign analytics object, or `null` if the campaign is not found or has no message events.
+
+<ResponseField name="_id" type="string">
+  Campaign (asset) ID
+</ResponseField>
+
+<ResponseField name="campaign" type="object">
+  Campaign document (name, createdAt, etc.)
+</ResponseField>
+
+<ResponseField name="total_messages" type="number">
+  Total messages sent for this campaign in the default date range
+</ResponseField>
+
+<ResponseField name="cost" type="number">
+  Total cost in cents
+</ResponseField>
+
+<ResponseField name="revenue" type="number">
+  Attributed revenue
+</ResponseField>
+
+<ResponseField name="orders_number" type="number">
+  Number of attributed orders
+</ResponseField>
+
+<ResponseField name="campaign_conversion_rate" type="number">
+  Conversion rate (orders / messages) as a percentage
+</ResponseField>
+
+<ResponseField name="average_cart" type="number">
+  Average order value (revenue / orders)
+</ResponseField>
+
+<ResponseField name="roas" type="number">
+  Return on ad spend (revenue / cost)
+</ResponseField>
+
+<ResponseField name="campaign_type" type="string">
+  Asset type: `campaigns` or `outbound-automations`
+</ResponseField>
+
+<ResponseExample>
+```json 200
+{
+  "_id": "507f1f77bcf86cd799439011",
+  "campaign": {
+    "_id": "507f1f77bcf86cd799439011",
+    "name": "Summer Sale",
+    "createdAt": "2024-01-10T08:00:00.000Z"
+  },
+  "total_messages": 5000,
+  "cost": 25000,
+  "revenue": 125000,
+  "orders_number": 120,
+  "campaign_conversion_rate": 2.4,
+  "average_cart": 1041.67,
+  "roas": 5,
+  "campaign_type": "campaigns"
+}
+```
+
+```json 200
+null
+```
+
+```json 401
+{
+  "message": "Unauthorized"
+}
+```
+</ResponseExample>
