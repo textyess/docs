@@ -1,104 +1,96 @@
 {
-  "$schema": "https://mintlify.com/schema.json",
-  "name": "TextYess docs",
-  "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
-  },
-  "favicon": "/favicon.svg",
-  "colors": {
-    "primary": "#503ADC",
-    "light": "#A69BED",
-    "dark": "#503ADC",
-    "anchors": {
-      "from": "#503ADC",
-      "to": "#A69BED"
-    }
-  },
-  "topbarLinks": [
-    {
-      "name": "Support",
-      "url": "mailto:support@textyess.com"
-    }
-  ],
-  "topbarCtaButton": {
-    "name": "Sign in",
-    "url": "https://ai.textyess.com"
-  },
-  "anchors": [
-  ],
-  "navigation": [
-    {
-      "group": "Get Started",
-      "pages": [
-        "introduction",
-        "whatsapp-integration",
-        "widget-installation-shopify",
-        "widget-installation-woocommerce",
-        "onsite-widget-installation-shopify",
-        "onsite-widget-installation-woocommerce",
-        "analytics"
-      ]
-    },
-    {
-      "group": "Guides",
-      "pages": [
-        "improve-ai",
-        "personalize-whatsapp",
-        "whatsapp-business-accounts",
-        "manage-conversations",
-        "product-widget-install",
-        "textyess-on-smartphones",
-        "setup-gorgias",
-        "setup-zendesk",
-        "setup-klaviyo",
-        "setup-hubspot",
-        "off-boarding"
-      ]
-    },
-    {
-      "group": "Webhooks",
-      "pages": [
-        "new-order-webhook",
-        "get-new-order",
-        "flow-webhook"
-      ]
-    },
-     {
-      "group": "Products API",
-      "pages": [
-        "bulk-import-products",
-        "bulk-update-products",
-        "bulk-delete-products",
-        "get-imported-product"
-      ]
-    },
-    {
-      "group": "Campaigns API",
-      "pages": [
-        "list-deliverability-status",
-        "get-deliverability-status"
-      ]
-    },
-    {
-      "group": "Analytics API",
-      "pages": [
-        "list-campaigns-analytics",
-        "get-campaign-analytics",
-        "list-campaign-orders",
-        "list-orders-analytics"
-      ]
-    }
-  ],
-  "footerSocials": {
-    "instagram": "https://www.instagram.com/text_yess",
-    "linkedin": "https://www.linkedin.com/company/textyess/"
-  },
-  "api": {
-    "baseUrl": "https://api-ai.textyess.com",
-    "auth": {
-      "method": "key",
-      "name": "x-auth-token"
-    }
-  }
+	"$schema": "https://mintlify.com/schema.json",
+	"name": "TextYess docs",
+	"logo": {
+		"dark": "/logo/dark.svg",
+		"light": "/logo/light.svg"
+	},
+	"favicon": "/favicon.svg",
+	"colors": {
+		"primary": "#503ADC",
+		"light": "#A69BED",
+		"dark": "#503ADC",
+		"anchors": {
+			"from": "#503ADC",
+			"to": "#A69BED"
+		}
+	},
+	"topbarLinks": [
+		{
+			"name": "Support",
+			"url": "https://textyesssupport.zendesk.com/hc/en-us"
+		}
+	],
+	"topbarCtaButton": {
+		"name": "Sign in",
+		"url": "https://ai.textyess.com"
+	},
+	"anchors": [],
+	"navigation": [
+		{
+			"group": "Get Started",
+			"pages": [
+				"introduction",
+				"whatsapp-integration",
+				"widget-installation-shopify",
+				"widget-installation-woocommerce",
+				"onsite-widget-installation-shopify",
+				"onsite-widget-installation-woocommerce",
+				"analytics"
+			]
+		},
+		{
+			"group": "Guides",
+			"pages": [
+				"improve-ai",
+				"personalize-whatsapp",
+				"whatsapp-business-accounts",
+				"manage-conversations",
+				"product-widget-install",
+				"textyess-on-smartphones",
+				"setup-gorgias",
+				"setup-zendesk",
+				"setup-klaviyo",
+				"setup-hubspot",
+				"off-boarding"
+			]
+		},
+		{
+			"group": "Webhooks",
+			"pages": ["new-order-webhook", "get-new-order", "flow-webhook"]
+		},
+		{
+			"group": "Products API",
+			"pages": [
+				"bulk-import-products",
+				"bulk-update-products",
+				"bulk-delete-products",
+				"get-imported-product"
+			]
+		},
+		{
+			"group": "Campaigns API",
+			"pages": ["list-deliverability-status", "get-deliverability-status"]
+		},
+		{
+			"group": "Analytics API",
+			"pages": [
+				"list-campaigns-analytics",
+				"get-campaign-analytics",
+				"list-campaign-orders",
+				"list-orders-analytics"
+			]
+		}
+	],
+	"footerSocials": {
+		"instagram": "https://www.instagram.com/text_yess",
+		"linkedin": "https://www.linkedin.com/company/textyess/"
+	},
+	"api": {
+		"baseUrl": "https://api-ai.textyess.com",
+		"auth": {
+			"method": "key",
+			"name": "x-auth-token"
+		}
+	}
 }

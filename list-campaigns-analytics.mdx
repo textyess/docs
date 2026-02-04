@@ -7,7 +7,7 @@ authMethod: "key"
 
 ## Overview
 
-The list campaigns endpoint returns a paginated list of campaigns with aggregated analytics (messages, cost, revenue, orders, conversion rate, ROAS, open rate) within an optional date range. Results can be filtered by type and sorted by various keys.
+The list campaigns endpoint returns a paginated list of campaigns with aggregated analytics (messages, cost, revenue, orders, conversion rate, ROAS, open rate) within an optional date range. Results can be filtered by type. Results are ordered by campaign creation date (newest first).
 
 ## Authentication
 
@@ -33,22 +33,6 @@ x-auth-token: your_jwt_token
   initialValue="2024-03-20T23:59:59.999Z"
 >
   End date for filtering results (ISO 8601). Defaults to now if omitted.
-</ParamField>
-
-<ParamField
-  query="sortDirection"
-  type="string"
-  initialValue="-1"
->
-  Sort direction: `1` for ascending, `-1` for descending. Defaults to `-1`.
-</ParamField>
-
-<ParamField
-  query="sortKey"
-  type="string"
-  initialValue="createdAt"
->
-  Field to sort by: `createdAt`, `name`, `title`, `total_messages`, `cost`, `revenue`, `orders_number`, `campaign_conversion_rate`, `average_cart`, `roas`.
 </ParamField>
 
 <ParamField
