@@ -1,0 +1,122 @@
+---
+title: "List Deliverability Status"
+api: "POST /campaigns/deliverability-status"
+description: "Get deliverability status for multiple campaigns at once"
+authMethod: "key"
+---
+
+## Overview
+
+The list deliverability status endpoint returns deliverability metrics (sent, pending, delivered, read, failed, etc.) for each of the given campaign IDs in a single request. Use this to monitor message delivery across multiple campaigns.
+
+## Authentication
+
+This endpoint requires a valid JWT token in the `x-auth-token` header. You can find your token in the [Developers section](https://ai.textyess.com/developers):
+
+```bash
+x-auth-token: your_jwt_token
+```
+
+## Body Parameters
+
+Send a JSON array of campaign IDs (strings) in the request body:
+
+```json
+["507f1f77bcf86cd799439011", "507f1f77bcf86cd799439012"]
+```
+
+## Response
+
+The response is an array of deliverability status objects. Each object includes:
+
+<ResponseField name="_id" type="string">
+  The deliverability record ID
+</ResponseField>
+
+<ResponseField name="asset" type="string">
+  The campaign ID this status refers to
+</ResponseField>
+
+<ResponseField name="total_contacts" type="number">
+  Total number of contacts targeted
+</ResponseField>
+
+<ResponseField name="sent" type="number">
+  Number of messages sent
+</ResponseField>
+
+<ResponseField name="pending" type="number">
+  Number of messages still pending
+</ResponseField>
+
+<ResponseField name="blacklisted" type="number">
+  Number of blacklisted contacts
+</ResponseField>
+
+<ResponseField name="failed_to_send" type="number">
+  Number of messages that failed to send
+</ResponseField>
+
+<ResponseField name="delayed" type="number">
+  Number of delayed messages
+</ResponseField>
+
+<ResponseField name="failed_to_receive" type="number">
+  Number that failed to be received
+</ResponseField>
+
+<ResponseField name="read" type="number">
+  Number of messages read
+</ResponseField>
+
+<ResponseField name="delivered" type="number">
+  Number of messages delivered
+</ResponseField>
+
+<ResponseField name="opted_out" type="number">
+  Number of contacts who opted out
+</ResponseField>
+
+<ResponseField name="createdAt" type="string">
+  ISO date when the record was created
+</ResponseField>
+
+<ResponseField name="updatedAt" type="string">
+  ISO date when the record was last updated
+</ResponseField>
+
+<ResponseExample>
+```json 200
+[
+  {
+    "_id": "507f1f77bcf86cd799439013",
+    "asset": "507f1f77bcf86cd799439011",
+    "total_contacts": 1000,
+    "sent": 980,
+    "pending": 0,
+    "blacklisted": 5,
+    "failed_to_send": 15,
+    "delayed": 0,
+    "failed_to_receive": 0,
+    "read": 450,
+    "delivered": 950,
+    "opted_out": 2,
+    "createdAt": "2024-01-15T10:00:00.000Z",
+    "updatedAt": "2024-01-15T12:30:00.000Z"
+  }
+]
+```
+
+```json 404
+{
+  "message": "Campaign not found",
+  "statusCode": 404
+}
+```
+
+```json 401
+{
+  "message": "Unauthorized"
+}
+```
+</ResponseExample>

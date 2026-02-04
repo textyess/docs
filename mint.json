@@ -72,6 +72,22 @@
         "bulk-delete-products",
         "get-imported-product"
       ]
+    },
+    {
+      "group": "Campaigns API",
+      "pages": [
+        "list-deliverability-status",
+        "get-deliverability-status"
+      ]
+    },
+    {
+      "group": "Analytics API",
+      "pages": [
+        "list-campaigns-analytics",
+        "get-campaign-analytics",
+        "list-campaign-orders",
+        "list-orders-analytics"
+      ]
     }
   ],
   "footerSocials": {

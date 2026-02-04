@@ -1,0 +1,171 @@
+---
+title: "List Campaigns (Analytics)"
+api: "GET /analytics/campaigns"
+description: "Get a paginated list of campaigns with analytics metrics"
+authMethod: "key"
+---
+
+## Overview
+
+The list campaigns endpoint returns a paginated list of campaigns with aggregated analytics (messages, cost, revenue, orders, conversion rate, ROAS, open rate) within an optional date range. Results can be filtered by type and sorted by various keys.
+
+## Authentication
+
+This endpoint requires a valid JWT token in the `x-auth-token` header. You can find your token in the [Developers section](https://ai.textyess.com/developers):
+
+```bash
+x-auth-token: your_jwt_token
+```
+
+## Query Parameters
+
+<ParamField
+  query="from"
+  type="string"
+  initialValue="2024-01-01T00:00:00.000Z"
+>
+  Start date for filtering results (ISO 8601). Defaults to 2022-01-01 if omitted.
+</ParamField>
+
+<ParamField
+  query="to"
+  type="string"
+  initialValue="2024-03-20T23:59:59.999Z"
+>
+  End date for filtering results (ISO 8601). Defaults to now if omitted.
+</ParamField>
+
+<ParamField
+  query="sortDirection"
+  type="string"
+  initialValue="-1"
+>
+  Sort direction: `1` for ascending, `-1` for descending. Defaults to `-1`.
+</ParamField>
+
+<ParamField
+  query="sortKey"
+  type="string"
+  initialValue="createdAt"
+>
+  Field to sort by: `createdAt`, `name`, `title`, `total_messages`, `cost`, `revenue`, `orders_number`, `campaign_conversion_rate`, `average_cart`, `roas`.
+</ParamField>
+
+<ParamField
+  query="type"
+  type="string"
+>
+  Type of assets: `campaigns` or `outbound-automations`. When `outbound-automations`, includes flows and outbound automations.
+</ParamField>
+
+<ParamField
+  query="page"
+  type="string"
+  required
+  initialValue="0"
+>
+  Page number (0-based). Use 0 for the first page.
+</ParamField>
+
+<ParamField
+  query="perPage"
+  type="string"
+  required
+  initialValue="10"
+>
+  Number of items per page. Must be at least 1.
+</ParamField>
+
+## Response
+
+The response has two top-level keys: `data` (array of campaign analytics) and `pagination`.
+
+Each item in `data` includes:
+
+<ResponseField name="_id" type="string">
+  Campaign (or asset) ID
+</ResponseField>
+
+<ResponseField name="campaign" type="object">
+  Campaign document (name, createdAt, etc.)
+</ResponseField>
+
+<ResponseField name="total_messages" type="number">
+  Total messages sent for this campaign in the date range
+</ResponseField>
+
+<ResponseField name="cost" type="number">
+  Total cost in cents
+</ResponseField>
+
+<ResponseField name="revenue" type="number">
+  Attributed revenue
+</ResponseField>
+
+<ResponseField name="orders_number" type="number">
+  Number of attributed orders
+</ResponseField>
+
+<ResponseField name="campaign_conversion_rate" type="number">
+  Conversion rate (orders / messages) as a percentage
+</ResponseField>
+
+<ResponseField name="average_cart" type="number">
+  Average order value (revenue / orders)
+</ResponseField>
+
+<ResponseField name="roas" type="number">
+  Return on ad spend (revenue / cost)
+</ResponseField>
+
+<ResponseField name="open_rate" type="number">
+  Open rate (read / delivered+read) as a percentage
+</ResponseField>
+
+<ResponseField name="campaign_type" type="string">
+  Asset type: `campaigns` or `outbound-automations`
+</ResponseField>
+
+<ResponseField name="uniqueConversations" type="number">
+  Number of unique conversations
+</ResponseField>
+
+Pagination object: `total` (total count), `perPage`, `page`.
+
+<ResponseExample>
+```json 200
+{
+  "data": [
+    {
+      "_id": "507f1f77bcf86cd799439011",
+      "campaign": {
+        "_id": "507f1f77bcf86cd799439011",
+        "name": "Summer Sale",
+        "createdAt": "2024-01-10T08:00:00.000Z"
+      },
+      "total_messages": 5000,
+      "cost": 25000,
+      "revenue": 125000,
+      "orders_number": 120,
+      "campaign_conversion_rate": 2.4,
+      "average_cart": 1041.67,
+      "roas": 5,
+      "open_rate": 65.2,
+      "campaign_type": "campaigns",
+      "uniqueConversations": 4800
+    }
+  ],
+  "pagination": {
+    "total": 42,
+    "perPage": 10,
+    "page": 0
+  }
+}
+```
+
+```json 401
+{
+  "message": "Unauthorized"
+}
+```
+</ResponseExample>
