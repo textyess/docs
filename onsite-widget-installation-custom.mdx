@@ -1,0 +1,187 @@
+---
+title: "[CUSTOM CMS] Onsite Widget installation"
+description: "Install the TextYess AI Shopping Assistant on any website or custom CMS. This guide covers the generic integration process for platforms other than Shopify or WooCommerce."
+---
+
+<Note>
+Using Shopify or WooCommerce? Check the dedicated guides:
+- [Shopify installation guide](/onsite-widget-installation-shopify)
+- [WooCommerce installation guide](/onsite-widget-installation-woocommerce)
+</Note>
+
+The Onsite Widget is a powerful AI Shopping Assistant that runs directly on your website. It differs from the WhatsApp bubble by providing:
+
+- **Full chat experience** with a centered modal dialog
+- **Product carousel** with variant selection
+- **Persistent conversations** across page navigation
+- **Customizable appearance** with colors, banners, and positioning
+
+<Warning>
+The **Add to Cart** functionality is currently only available for Shopify stores. If you are using a different e-commerce platform, you **must** set `show_add_to_cart="false"` in the widget snippet to disable this feature.
+</Warning>
+
+## Integration overview
+
+The integration requires two elements to be added to your HTML:
+
+1. **The script tag** — loads the widget component library
+2. **The widget tag** — renders the widget on the page
+
+Both must be placed inside the `<body>` of every page where you want the widget to appear.
+
+<Steps>
+  <Step title="Customize your widget appearance">
+    Go to **Agents > Onsite Agent** from the sidebar menu and click on the **Appearance** tab to personalize your widget.
+
+    You can customize:
+    - **Colors**: Background, bubble, and icon colors
+    - **Text**: Dialog title, welcome message, and bubble text
+    - **Position**: Bottom-right corner or right-center of the screen
+    - **Banner image**: Display a promotional image at the top of the chat
+    - **Popular questions**: Suggested questions for customers to ask
+  </Step>
+
+  <Step title="Get the code snippet">
+    Scroll down to the **Widget Installation** section and click **Export widget code**. A modal will appear with the code snippet ready to copy. <br />
+    The code will look something like this:
+
+```html
+<script
+  type="module"
+  src="https://cdn.textyess.com/v2/textyess-widget-components/textyess-widget-components.esm.js"
+  defer
+></script>
+<textyess-ai-widget
+  organization_id="your_organization_id"
+  language="en"
+  show_add_to_cart="false"
+/>
+```
+
+<Note>
+The onsite widget uses the `<textyess-ai-widget>` tag, which is different from the WhatsApp bubble widget (`<textyess-bubble-widget>`).
+</Note>
+
+  </Step>
+
+  <Step title="Add the snippet to your website">
+    Open the HTML template or layout file that wraps the pages where you want the widget to appear. This is typically called something like `base.html`, `layout.html`, `footer.html`, or similar depending on your CMS. <br />
+
+    Paste the code snippet from the previous step **right before** the closing `</body>` tag. <br />
+
+<Tip>
+If you cannot find the `</body>` tag, use your editor's search function (**Cmd + F** on Mac or **Ctrl + F** on Windows) and search for `</body>`.
+</Tip>
+
+Your code should look something like this: <br />
+
+```html
+<!-- your existing page content -->
+
+<script
+  type="module"
+  src="https://cdn.textyess.com/v2/textyess-widget-components/textyess-widget-components.esm.js"
+  defer
+></script>
+<textyess-ai-widget
+  organization_id="your_organization_id"
+  language="en"
+  show_add_to_cart="false"
+/>
+
+</body>
+```
+
+  </Step>
+
+  <Step title="Save and verify">
+    Save the file and publish the changes according to your CMS workflow. Then open your website in a browser to verify the widget is displayed correctly. <br />
+
+<Tip>
+If the widget does not appear, make sure the snippet is placed inside the `<body>` tag and that the `organization_id` matches the one provided in the TextYess dashboard.
+</Tip>
+
+<Check>Congratulations, we are live!</Check>
+
+  </Step>
+</Steps>
+
+## Platform-specific tips
+
+Depending on your CMS, the process for editing the page layout may vary:
+
+| Platform | Where to add the snippet |
+|----------|--------------------------|
+| **WordPress (non-WooCommerce)** | Appearance > Theme Editor > `footer.php`, before `</body>` |
+| **PrestaShop** | Back Office > Design > Theme & Logo > Edit theme files, or in `themes/your_theme/templates/layouts/layout-both-columns.tpl` |
+| **Magento** | `app/design/frontend/your_theme/default/Magento_Theme/templates/root.phtml`, before `</body>` |
+| **Custom / Static HTML** | Directly in your HTML layout file, before `</body>` |
+| **Tag Manager (e.g. Google Tag Manager)** | Add a Custom HTML tag with the snippet and set it to fire on All Pages |
+
+<Note>
+If your CMS uses a **tag manager** like Google Tag Manager, you can also add the snippet as a Custom HTML tag. This avoids editing theme files directly.
+</Note>
+
+## Customization Options
+
+You can customize the onsite widget by adding attributes to the `<textyess-ai-widget>` tag:
+
+### Colors
+
+| Attribute | Description | Default |
+|-----------|-------------|---------|
+| `background_color` | Chat window background color | `#7f1d1d` |
+| `bubble_color` | Floating bubble color | `#7f1d1d` |
+| `bubble_content_color` | Text/icon color inside bubble | `#ffffff` |
+| `icon_color` | Icon color in UI elements | `#ffffff` |
+
+### Position & Appearance
+
+| Attribute | Description | Default |
+|-----------|-------------|---------|
+| `bubble_position` | Position of the bubble: `bottom-right` or `right-center` | `right-center` |
+| `image_banner_url` | URL of banner image shown at top of chat | - |
+| `image_fit` | How banner image scales: `contain` or `cover` | `cover` |
+
+### Text & Content
+
+| Attribute | Description | Default |
+|-----------|-------------|---------|
+| `dialog_title` | Title shown in the chat window header | - |
+| `welcome_message` | Initial greeting message | - |
+| `bubble_text` | Text on the floating action bubble | - |
+| `badge_text` | Badge text (e.g., "NEW") | - |
+| `popular_questions` | Suggested questions (comma-separated) | - |
+
+### Language
+
+| Attribute | Description | Default |
+|-----------|-------------|---------|
+| `language` | Language: `en` (English) or `it` (Italian) | `it` |
+
+### E-commerce
+
+| Attribute | Description | Default |
+|-----------|-------------|---------|
+| `show_add_to_cart` | Show "Add to Cart" buttons for products | `true` |
+
+### Example with customization
+
+```html
+<script
+  type="module"
+  src="https://cdn.textyess.com/v2/textyess-widget-components/textyess-widget-components.esm.js"
+  defer
+></script>
+<textyess-ai-widget
+  organization_id="your_organization_id"
+  language="en"
+  dialog_title="Shopping Assistant"
+  welcome_message="Hi! How can I help you today?"
+  bubble_text="Need help?"
+  background_color="#1e40af"
+  bubble_color="#1e40af"
+  bubble_position="bottom-right"
+  show_add_to_cart="false"
+/>
+```
